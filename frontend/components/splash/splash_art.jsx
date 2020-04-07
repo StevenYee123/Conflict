@@ -20,14 +20,26 @@ const SplashArt = () => {
         <img src={window.squareURL} className="splash-shape" id="square-1" alt="square.svg"/>
         <img src={window.squareURL} className="splash-shape" id="square-2" alt="square.svg"/>
         <img src={window.squareURL} className="splash-shape" id="square-3" alt="square.svg"/>
-
+        {/* X's on the page */}
         <img src={window.crossURL} className="splash-shape" id="cross-1" alt="cross.svg"/>
         <img src={window.crossURL} className="splash-shape" id="cross-2" alt="cross.svg"/>
         <img src={window.crossURL} className="splash-shape" id="cross-3" alt="cross.svg"/>
 
-        <img src={window.bombURL} className="splash-bomb" alt="bomb.svg" />
-        <img src={window.coinURL} className="floating" id="coin-1" alt="coin.svg" />
-        
+        {/* Floating Images */}
+        <img src={window.bombURL} className="splash-bomb floating" alt="bomb.svg" />
+        <img src={window.coinURL} className="splash-coin floating" id="coin-1" alt="coin.svg" />
+        <img src={window.coinURL} className="splash-coin floating" id="coin-2" alt="coin.svg" />
+        <img src={window.cartridgeURL} className="splash-cartridge floating" alt="cartridge.svg"/>
+
+        <img src={window.potionURL} className="splash-potion" alt="potion.svg" />
+        <img src={window.shieldURL} className="splash-shield" alt="shield.svg" />
+        <img src={window.blockURL}  className="splash-block" alt="block.svg"/>
+        <img src={window.monitorURL} className="splash-monitor" alt="monitor.svg"/>
+        <img src={window.androidURL} className="splash-android" alt="android.svg"/>
+        <img src={window.iphoneURL} className="splash-iphone" alt="iphone.svg"/>
+        <img src={window.controllerURL} className="splash-controller" alt="controller.svg"/>
+        <img src={window.laptopURL} className="splash-laptop" alt="laptop.svg"/>
+        <img src={window.headphonesURL} className="splash-headphones" alt="headphones.svg"/>
       </div>
     );
 }
