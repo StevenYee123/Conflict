@@ -19,13 +19,13 @@ export const receiveErrors = errors => ({
 })
 
 export const signup = user => dispatch => (
-    SessionAPI.signup(user).then(user => dispatch(receiveCurrentUser(user))),
-    err => (dispatch(receiveErrors(err.responseJSON)))
+    SessionAPI.signup(user).then(user => dispatch(receiveCurrentUser(user)),
+    (errors)=> dispatch(receiveErrors(errors)))
 );
 
 export const login = user => dispatch => (
-    SessionAPI.login(user).then(user => dispatch(receiveCurrentUser(user))),
-    err => (dispatch(receiveErrors(err.responseJSON)))
+    SessionAPI.login(user).then(user => dispatch(receiveCurrentUser(user)), 
+    (errors) => dispatch(receiveErrors(errors)))
 );
 
 export const logout = () => dispatch => (
