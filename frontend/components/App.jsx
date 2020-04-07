@@ -6,15 +6,13 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 
 const App = () => (
-  <div className="app">
-    <header className="startHeader">
-      <SplashContainer />
-    </header>
+  <>
+    <SplashContainer />
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
-  </div>
+  </>
 );
 
 export default App;

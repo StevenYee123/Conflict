@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import SplashArt from "./splash_art";
 
 class Splash extends React.Component{
     constructor(props){
@@ -38,7 +39,6 @@ class Splash extends React.Component{
               <div className="right">{initialHeader()}</div>
             </header>
             <div className="splash-mid">
-              <div>
                 <h1>A new way to chat with your communities and friends</h1>
                 <p>
                   Conflict is the easiest way to communicate over voice, video,
@@ -46,12 +46,12 @@ class Splash extends React.Component{
                   gaming group, a worldwide art community, or just a handful of
                   friends that want to hang out.
                 </p>
-              </div>
               <div className="bottom">
                 <Link to="/signup" className="signup-button">Sign Up</Link>
                 <Link to="/" className="homepage-button">Open Conflict in Your Browser</Link>
               </div>
             </div>
+            <SplashArt />
           </div>
         );
     }
