@@ -1,5 +1,5 @@
 .session-page{
-    background-image: url("diablo3-background.jpeg");
+    background-image: image-url('diablo3-background.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -7,6 +7,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.session-page ul{
+    z-index: 1;
+    margin-top: 100px;
+    background-color: red;
 }
 
 .fields-form{
