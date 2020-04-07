@@ -1,0 +1,24 @@
+h1, h2, h3, h4, p, span, strong, div, section,
+aside, header, footer, main, body, a, i, nav, hr,
+li, button, form, input, textarea, img, ol, ul {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	list-style: none;
+	text-decoration: none;
+  line-height: 100%;
+}
+
+div:focus, header:focus, input:focus, button:focus {
+  outline: none;
+}
+
+textarea {
+	resize: none;
+}
+
+textarea::-webkit-scrollbar { 
+  width: 0 !important; 
+}

@@ -1,0 +1,175 @@
+.app, #root, .startHeader, .splash{
+    height: 100%;
+}
+
+.splash{
+    width: 100%;
+}
+
+.splash-nav{
+    display: flex;
+    height: 72px;
+    width: 100%;
+    font-size: 20px;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.splash-nav .left{
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.splash-nav .left > img{
+    width: 25%;
+}
+
+.splash-nav .left > strong{
+    padding: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.splash-nav .right{
+    width: 75%;
+    height: 75%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.splash-nav .right > a {
+    margin: 10px;
+    font-family: Helvetica;
+    padding: 5px 15px 10px 15px;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    opacity: .5;
+}
+
+.splash-nav .right > a:hover{
+    opacity: 1;
+}
+
+.splash-logo{
+    margin-bottom: 0px;
+    width: 10%;
+}
+
+.splash-mid{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 72px 50px 0;
+    color: white;
+    max-width: 800px;
+    font-size: 28px;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.splash-mid p {
+    text-align: center;
+    font-size: 16px;
+    color: gray;
+    font-family: Helvetica;
+}
+
+.splash-mid h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.splash-mid .bottom {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12px;
+    width: 100%;
+    height: 68px;
+}
+
+.signup-button {
+    text-decoration: none;
+    background-color: #FFFFFF;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 10px 40px;
+    height: 25px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.signup-button:hover{
+    background-color: rgb(196, 194, 194);
+}
+
+.homepage-button {
+    text-decoration: none;
+    background-color: #7289DA;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 40px;
+    height: 25px;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.homepage-button:hover{
+    background-color: rgb(39, 57, 128);
+}
+
+.splash-bottom {
+    width: 100%;
+    height: 638px;
+    position: relative;
+}
+
+.splash-bottom img{
+    position: absolute;
+    left: 50%;
+}
+
+.splash-shape{
+    opacity: .3;
+}
+
+.top-square{
+    left: 50%;
+    margin-left: 331px;
+    bottom: 600px;
+}
+
+#triangle-1{
+    margin-left: 31px;
+    bottom: 550px;
+}
+
+#triangle-2{
+    margin-left: -579px;
+    bottom: 300px;
+}
+
+#triangle-3{
+    margin-left: -289px;
+    bottom: 448px;
+}
+
+#coin-1{
+    margin-left: 80px;
+    bottom: 530px;
+}
+
+.splash-bomb{
+    left: 50%;
+    margin-left: -481px;
+    bottom: 350px;
+}
+
+.floating{
+    animation: floating 1.5s ease-in-out 0s infinite alternate;
+}
