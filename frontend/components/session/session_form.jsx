@@ -26,26 +26,32 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  componentDidMount(){
+  }
+
   render() {
     // Some logic to render differently based on formType
     const that = this;
     const { formType } = this.props;
-    let header;
-    let link;
-    let usernameField;
+    let header, subMessage, link, usernameField, classname;
 
-      header = <h1>{formType}</h1>;
       if (formType === 'Sign Up'){
         link = "/login";
+        classname = "signup";
+        header = "Welcome Aboard!"
+        subMessage = "You'll make a fine addition to our ranks"
         usernameField = (
-          <label>
-            Username
-            <input type="text" onChange={this.handleChange("username")} />
-            <br />
-          </label>
+          <>
+            <label htmlFor="username" className="frontpage-label">Username</label>
+            <br/>
+            <input type="text" id="username" onChange={this.handleChange("username")} className="session-input"/>
+          </>
         );
       } else {
         link = `/signup`;
+        classname = "login";
+        header = "Welcome Back!"
+        subMessage = "We're so glad to see you again!"
         usernameField = (
           null
         )
@@ -53,32 +59,36 @@ class SessionForm extends React.Component {
 
     const errorList = () => {
       return that.props.errors.map((error) => {
-        debugger;
         return <li>{error}</li>;
       });
     };
-    debugger;
+
     return (
-      <div>
-        {header}
-        <form>
-          <label>
-            Email:
-            <input type="text" onChange={this.handleChange("email")} />
-          </label>
-          <br/>
-          {usernameField}
-          <label>
-            Password:
-            <input type="password" onChange={this.handleChange("password")} />
-          </label>
-          <button type="button" onClick={this.handleSubmit}>
-            {formType}
-          </button>
-        </form>
+      <div className="session-page">
+        <div className="fields-form">
+          <form className="session-form">
+          <div className="welcome-text">
+            <h1>{header}</h1>
+            <strong>{subMessage}</strong>
+          </div>
+          <div className="fields-container">
+            <label id="email" className="frontpage-label">Email:</label>
+            <br/>
+            <input type="text" id="email" onChange={this.handleChange("email")} className="session-input"/>
+            <br/>
+            {usernameField}
+            <label htmlFor="password" className="frontpage-label">Password</label>
+            <br/>
+            <input type="password" id="password" onChange={this.handleChange("password")} className="session-input" />
+            <button type="button" onClick={this.handleSubmit}>
+              {formType}
+            </button>
+          </div>
+          </form>
+          {this.props.navLink}
 
-        {this.props.navLink}
-
+        </div>
+        <br/>
         <ul>{errorList()}</ul>
       </div>
     );
