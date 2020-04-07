@@ -138,10 +138,19 @@
     opacity: .3;
 }
 
-.top-square{
-    left: 50%;
+#square-1{
     margin-left: 331px;
     bottom: 600px;
+}
+
+#square-2{
+    margin-left: 17px;
+    bottom: 92px;
+}
+
+#square-3{
+    margin-left: 431px;
+    bottom: 400px;
 }
 
 #triangle-1{
@@ -162,6 +171,46 @@
 #dot-1{
     margin-left: -599px;
     bottom: 200px;
+}
+
+#dot-2{
+    margin-left: -319px;
+    bottom: 600px;
+}
+
+#dot-3{
+    margin-left: 181px;
+    bottom: 500px;
+}
+
+#dot-4{
+    margin-left: 531px;
+    bottom: 600px;
+}
+
+#dot-5{
+    margin-left: 600px;
+    bottom: 140px;
+}
+
+#circle-1{
+    margin-left: -359px;
+    bottom: 530px;
+}
+
+#circle-2{
+    margin-left: 576px;
+    bottom: 280px;
+}
+
+#circle-3{
+    margin-left: -199px;
+    bottom: 88px;
+}
+
+#cross-1{
+    margin-left: 101px;
+    bottom: 440px;
 }
 
 #coin-1{
