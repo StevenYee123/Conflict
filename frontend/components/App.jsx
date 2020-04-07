@@ -6,9 +6,8 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 
 const App = () => (
-  <div>
-    <header>
-      <span>Conflict</span>
+  <div className="app">
+    <header className="startHeader">
       <SplashContainer />
     </header>
     <Switch>

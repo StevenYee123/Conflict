@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  window.brentURL = "<%= image_url('Discord-Logo-White.png') %>";
+</script>
 <% if logged_in? %>
   <script id="bootstrap-current-user" type="text/javascript">
   	window.currentUser = <%= render("api/users/user.json.jbuilder",

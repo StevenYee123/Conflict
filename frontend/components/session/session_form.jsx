@@ -6,6 +6,7 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       email: "",
+      username: "",
       password: "",
     };
 
@@ -31,14 +32,24 @@ class SessionForm extends React.Component {
     const { formType } = this.props;
     let header;
     let link;
+    let usernameField;
 
       header = <h1>{formType}</h1>;
       if (formType === 'Sign Up'){
         link = "/login";
+        usernameField = (
+          <label>
+            Username
+            <input type="text" onChange={this.handleChange("username")} />
+            <br />
+          </label>
+        );
       } else {
-        link = `/signup`
+        link = `/signup`;
+        usernameField = (
+          null
+        )
       }
-
 
     const errorList = () => {
       return that.props.errors.map((error) => {
@@ -54,6 +65,8 @@ class SessionForm extends React.Component {
             Email:
             <input type="text" onChange={this.handleChange("email")} />
           </label>
+          <br/>
+          {usernameField}
           <label>
             Password:
             <input type="password" onChange={this.handleChange("password")} />
