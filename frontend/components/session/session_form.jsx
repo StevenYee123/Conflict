@@ -30,7 +30,6 @@ class SessionForm extends React.Component {
   guestLogin(e) {
     e.preventDefault();
     
-    debugger;
     const dummy = {
       email: "sallyseashell@gmail.com",
       password: "password"
