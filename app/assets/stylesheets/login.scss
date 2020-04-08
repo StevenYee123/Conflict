@@ -5,7 +5,6 @@
 }
 
 .session-page{
-    background-image: image-url('diablo3-background.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -13,6 +12,26 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.one{
+    background-image: image_url('league_of_legends.png');
+}
+
+.two{
+    background-image: image-url('diablo3-background.jpeg');
+}
+
+.three{
+    background-image: image_url('darksouls.jpeg');
+}
+
+.four{
+    background-image: image_url('lastofus.jpeg');
+}
+
+.five{
+    background-image: image_url('forza.png');
 }
 
 .session-page ul{
@@ -28,6 +47,7 @@
     border-radius: 15px;
     position: relative;
     top: 100px;
+    opacity: .9;
 }
 
 .fields-container{

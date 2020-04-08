@@ -47,11 +47,12 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const numbers = ["one", "two", "three", "four", "five"];
     // Some logic to render differently based on formType
     const that = this;
     const { formType } = this.props;
     let header, subMessage, footerText, link, usernameField, classname;
-
+    const selector = numbers[Math.floor(Math.random() * 5)];
       if (formType === 'Sign Up'){
         link = "/login";
         classname = "signup";
@@ -83,7 +84,7 @@ class SessionForm extends React.Component {
     };
 
     return (
-      <div className="session-page">
+      <div className={`session-page ${selector}`}>
         <img src={window.brentURL} className="session-logo" alt="logo.png"/>
         <div className="fields-form">
           <form className="session-form">
