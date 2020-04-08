@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
     const that = this;
     const { formType } = this.props;
     let header, subMessage, footerText, link, usernameField, classname;
-    const selector = numbers[Math.floor(Math.random() * 5)];
+    const selector = numbers[this.props.classNum];
       if (formType === 'Sign Up'){
         link = "/login";
         classname = "signup";

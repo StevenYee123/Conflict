@@ -116,8 +116,12 @@
     color: gray;
 }
 
-.session-footer button{
-    color: gray;
+.session-footer a{
+    color: white;
+    background-color: gray;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 2px 4px;
 }
 
 #guest-login{
