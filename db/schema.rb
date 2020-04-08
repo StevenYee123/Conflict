@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_234823) do
+ActiveRecord::Schema.define(version: 2020_04_08_052709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_channels_on_server_id", unique: true
+  end
+
+  create_table "server_memberships", force: :cascade do |t|
+    t.integer "server_id", null: false
+    t.integer "member_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id", "member_id"], name: "index_server_memberships_on_server_id_and_member_id", unique: true
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "leader_id", null: false
+    t.boolean "private_status", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leader_id"], name: "index_servers_on_leader_id"
+    t.index ["name"], name: "index_servers_on_name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
