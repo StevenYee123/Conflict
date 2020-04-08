@@ -12,6 +12,6 @@ Channel.delete_all
 
 #Our demo user!
 u1 = User.create!({email: "sallyseashell@gmail.com", username: "sillysally", password: "password" })
-s1 = Server.create!({name: "BananaRama", leader_id: u1.id, private_status: false})
+s1 = Server.create!({name: "BananaRama", leader_id: u1.id, private_status: false, invite_link: "3kQ_EeIXWS2Gj3fzE1iltw"})
 sm1 = ServerMembership.create!({server_id: s1.id, member_id: u1.id})
 c1 = Channel.create!({name: "Seashell Shore", server_id: s1.id})

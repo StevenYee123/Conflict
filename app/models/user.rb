@@ -36,7 +36,6 @@ class User < ApplicationRecord
     has_many :channels,
     through: :servers,
     source: :channels
-
     
     
     def self.find_by_credentials(email, password)
