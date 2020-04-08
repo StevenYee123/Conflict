@@ -8,7 +8,7 @@ const mapStateToProps = ({ errors }) => ({
     errors: errors.session,
     formType: "Login",
     navLink: <Link to="/signup">Sign Up</Link>,
-    classNum: Math.floor(Math.random() * 5)
+    classNum: Math.floor(Math.random() * 6)
 });
 
 const mapDispatchToProps = (dispatch) => ({
