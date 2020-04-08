@@ -1,3 +1,9 @@
+.session-logo{
+    position: absolute;
+    left: 10px;
+    width: 75px;
+}
+
 .session-page{
     background-image: image-url('diablo3-background.jpeg');
     background-repeat: no-repeat;
@@ -58,6 +64,7 @@
     color: white;
     background-color: gray;
     border: 2px solid white;
+    cursor: pointer;
 }
 
 .welcome-text{
@@ -79,4 +86,22 @@
     font-size: 24px;
     color: gray;
     margin-left: 20px;
+}
+
+.session-footer{
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+}
+
+#guest-login{
+    cursor: pointer;
+    color: white;
+    background-color: gray;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 0px 0px 0px 20px;
 }
