@@ -1,4 +1,6 @@
 import React from "react";
+import { Switch, Router, withRouter } from "react-router-dom";
+import ServerIndexItem from "./server_index_item";
 
 class ServerIndex extends React.Component{
     constructor(props){
@@ -8,6 +10,10 @@ class ServerIndex extends React.Component{
 
     componentDidMount(){
         this.props.fetchServers();
+    }
+
+    createServer(e){
+        e.preventDefault();
     }
 
     getHeader(userInfo, logout){
@@ -24,22 +30,32 @@ class ServerIndex extends React.Component{
     render(){
         const {currentUser, logout} = this.props;
         const initialHeader = this.getHeader(currentUser, logout);
-        const serversList = this.props.servers.map((server) => {
-            return (
-                <div></div>
-            )
-        })
+        let serversList;
+        if (this.props.servers){
+            serversList = this.props.servers.map((server) => {
+              return <ServerIndexItem key={Math.random()} server={server} />;
+            });
+        }
         
+        return (
+          <div className="channels-main">
+            <div className="server-nav">
+              <ul className="server-icons">
+                <li>
+                  <i className="fas fa-users" id="user-icon"></i>
+                </li>
+                {serversList}
+                <li></li>
+              </ul>
+            </div>
 
-        return(
-            <div className="channels-main">
-                <div className="server-nav">
-
-                </div>
+            <div className="channels-nav">
+                <div></div>
                 {initialHeader}
             </div>
-        )
+          </div>
+        );
     }
 }
 
-export default ServerIndex;
+export default withRouter(ServerIndex);

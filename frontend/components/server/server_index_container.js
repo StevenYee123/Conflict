@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
-    fetchServers: () => dispatch(fetchServers())
+    fetchServers: () => dispatch(fetchServers()),
+    createServer: (server) => dispatch(createServer(server))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);
