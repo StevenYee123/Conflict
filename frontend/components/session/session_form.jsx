@@ -79,10 +79,15 @@ class SessionForm extends React.Component {
 
     const errorList = () => {
       return that.props.errors.map((error) => {
-        return <li>{error}</li>;
+        return <li class={Math.random()} key={Math.random()}>{error}</li>;
       });
     };
 
+    const errors = errorList();
+    let errorsClass = "";
+
+    if (errors.length >= 1) {errorsClass = "session-errors"}; 
+    
     return (
       <div className={`session-page ${selector}`}>
         <img src={window.brentURL} className="session-logo" alt="logo.png"/>
@@ -113,7 +118,7 @@ class SessionForm extends React.Component {
           
         </div>
         <br/>
-        <ul>{errorList()}</ul>
+        <ul className={errorsClass}>{errors}</ul>
       </div>
     );
   }

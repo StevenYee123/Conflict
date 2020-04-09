@@ -25,7 +25,7 @@ class Api::ServersController < ApplicationController
         if @server 
             render :show 
         else
-            @server.errors.full_messages, status: 404
+            render json: @server.errors.full_messages, status: 404
         end
     end
 
@@ -49,7 +49,7 @@ class Api::ServersController < ApplicationController
 
     def join
         @server = Server.find_by(invite_token: params[:invite_token])
-        if @server && !current_user.servers.include?(@server)
+        if @server
             ServerMembership.create(user_id: current_user.id, server_id: @server.id)
             render :show
         elsif current_user.servers.include?(@server)

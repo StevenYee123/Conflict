@@ -50,7 +50,7 @@ class Splash extends React.Component{
                 <br/>
               <div className="bottom">
                 <Link to="/signup" className="signup-button">Sign Up</Link>
-                <Link to="/" className="homepage-button">Open Conflict in Your Browser</Link>
+                <Link to="/signup" className="homepage-button">Open Conflict in Your Browser</Link>
               </div>
             </div>
             <SplashArt />

@@ -8,7 +8,7 @@
 
 .splash-nav{
     display: flex;
-    height: 72px;
+    height: 40px;
     width: 100%;
     font-size: 20px;
     align-items: center;
@@ -22,12 +22,13 @@
 }
 
 .splash-nav .left > img{
-    width: 25%;
+    width: 35px;
 }
 
 .splash-nav .left > strong{
     padding: 10px;
     color: white;
+    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -39,7 +40,6 @@
 }
 
 .splash-nav .right > a {
-    margin: 10px;
     font-family: Helvetica;
     padding: 5px 15px 10px 15px;
     border: 2px solid white;
