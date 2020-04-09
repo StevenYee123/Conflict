@@ -5,6 +5,11 @@
 }
 
 .session-page{
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;

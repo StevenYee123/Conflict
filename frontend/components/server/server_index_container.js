@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
     return{
         currentUser: state.entities.users[state.session.id],
         serverIds: Object.keys(state.entities.servers),
-        errors: state.errors.session
+        errors: state.errors.session,
+        servers: Object.values(state.entities.servers)
     }
 };
 
