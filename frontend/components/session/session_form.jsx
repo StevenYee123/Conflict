@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+
   }
 
   guestLogin(e) {
@@ -34,7 +35,9 @@ class SessionForm extends React.Component {
       email: "sallyseashell@gmail.com",
       password: "password"
     };
-    this.props.manualLogin(dummy);
+    this.props
+      .manualLogin(dummy)
+      .then(() => this.props.history.push("/channels"));
   }
 
   componentDidMount(){
@@ -124,4 +127,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
