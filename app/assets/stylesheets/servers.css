@@ -29,6 +29,20 @@
     background-color: #7289DA;
 }
 
+.add-server-button {
+    color: white;
+    background-color: #3a3d42;
+    padding: 10px 15px;
+    border: 1px dashed white;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.add-server-button:hover{
+    background-color: #7289DA;
+    
+}
+
 #user-icon {
     font-size: 18px;
     padding: 0px;

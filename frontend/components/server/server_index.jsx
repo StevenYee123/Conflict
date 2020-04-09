@@ -6,6 +6,7 @@ class ServerIndex extends React.Component{
     constructor(props){
         super(props);
         this.getHeader = this.getHeader.bind(this);
+        this.createServer = this.createServer.bind(this);
     }
 
     componentDidMount(){
@@ -45,7 +46,7 @@ class ServerIndex extends React.Component{
                   <i className="fas fa-users" id="user-icon"></i>
                 </li>
                 {serversList}
-                <li></li>
+                <button className="add-server-button" onClick={this.createServer}>+</button>
               </ul>
             </div>
 
