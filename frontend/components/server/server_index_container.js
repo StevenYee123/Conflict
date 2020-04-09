@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import { Link } from "react-router-dom";
 import {fetchServers, createServer, removeServer, updateServer} from "../../actions/server_actions";
 import {logout} from "../../actions/session_actions";
-import {modalAddServer} from "../../actions/modal_actions";
+import {modalReceiver, modalRemover} from "../../actions/modal_actions";
 import ServerIndex from "./server_index";
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         serverIds: Object.keys(state.entities.servers),
         errors: state.errors.session,
-        servers: Object.values(state.entities.servers)
+        servers: Object.values(state.entities.servers),
+        serverFormModal: state.modal
     }
 };
 
@@ -18,7 +19,8 @@ const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
     fetchServers: () => dispatch(fetchServers()),
     createServer: (server) => dispatch(createServer(server)),
-    addServerModal: () => dispatch(modalAddServer())
+    receiveModal: (modalType) => dispatch(modalReceiver(modalType)),
+    removeModal: (modalType) => dispatch(modalRemover(modalType))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);

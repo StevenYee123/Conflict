@@ -9,7 +9,7 @@ function AddServerForm({ createServerModal }){
       <div className="server-form-container">
         <h1>More Conflict!</h1>
         <div className="choices-container">
-
+            <button onClick={createServer}>Create a Server!</button>
         </div>
       </div>
     );
@@ -17,7 +17,7 @@ function AddServerForm({ createServerModal }){
 }
 
 const mapDispatchToProps = dispatch => ({
-    createServerModal: (server) => dispatch(createServerModal(server))
+    createServerModal: (server) => dispatch(modalCreateServer(server))
 })
 
 export default connect(null, mapDispatchToProps)(AddServerForm);

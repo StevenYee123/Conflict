@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Router, withRouter } from "react-router-dom";
 import ServerIndexItem from "./server_index_item";
+import Modal from "react-modal";
 
 class ServerIndex extends React.Component{
     constructor(props){
@@ -15,6 +16,8 @@ class ServerIndex extends React.Component{
 
     createServer(e){
         e.preventDefault();
+        debugger;
+        this.props.addServerModal();
     }
 
     getHeader(userInfo, logout){

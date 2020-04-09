@@ -1,16 +1,14 @@
-import { MODAL_ADD_SERVER, MODAL_CREATE_SERVER, MODAL_CLEAR } from "../actions/modal_actions";
+import { RECEIVE_MODAL, REMOVE_MODAL } from "../actions/modal_actions";
 
-const modalReducer = (state = { type: null }, action) => {
+const modalReducer = (state = {}, action) => {
     Object.freeze(state);
     switch(action.type){
-        case MODAL_ADD_SERVER:
-            return { type: action.type };
-        case MODAL_CREATE_SERVER:
-            return { type: action.type };
-        case MODAL_CLEAR:
-            return { type: null };
+        case RECEIVE_MODAL:
+            return Object.assign({}, state, {[action.modalType]: true})
+        case REMOVE_MODAL:
+            return Object.assign({}, state, {[action.modalType]: false })
         default: 
-            return state;
+            return {};
     }
 }
 
