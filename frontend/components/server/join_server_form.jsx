@@ -29,7 +29,8 @@ class JoinServerForm extends React.Component{
             <i className="fas fa-american-sign-language-interpreting" id="join-server-logo"></i>
             <h1>Join a Server!</h1>
             <form onSubmit={this.handleSubmit}>
-              <input type="text" onChange={this.handleChange("invite_link")} id="server-field"/>
+              <input type="text" onChange={this.handleChange("invite_link")} id="server-field"
+              placeholder="Enter secret password"/>
               <input type="submit" value="Join Server!" id="join-server-button"/>
             </form>
           </div>
