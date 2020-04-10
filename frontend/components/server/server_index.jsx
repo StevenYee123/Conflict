@@ -12,7 +12,6 @@ class ServerIndex extends React.Component{
           showModal : true
         }
 
-        this.getHeader = this.getHeader.bind(this);
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.stopEvent = this.stopEvent.bind(this);
@@ -40,20 +39,9 @@ class ServerIndex extends React.Component{
       e.stopPropagation();
     }
 
-    getHeader(userInfo, logout){
-        if (userInfo) {
-          return (
-            <div className="logout-section">
-              <strong>{userInfo.username}</strong>
-              <button onClick={logout}>Log Out</button>
-            </div>
-          );
-        }
-    }
 
     render(){
         const {currentUser, logout, createServer, joinServer} = this.props;
-        const initialHeader = this.getHeader(currentUser, logout);
         let serversList, errorsList;
         if (this.props.servers){
             serversList = this.props.servers.map((server) => {
@@ -83,11 +71,6 @@ class ServerIndex extends React.Component{
               </ul>
             </div>
             {errorsList}
-
-            <div className="second-nav" onClick={this.closeModal}>
-                <div></div>
-                {initialHeader}
-            </div>
 
             <Modal className="server-modal" isOpen={this.props.modal} ariaHideApp={false} 
             style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)'} }}>
