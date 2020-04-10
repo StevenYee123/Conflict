@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Router, withRouter } from "react-router-dom";
+import { Switch, Router, withRouter, NavLink, Route } from "react-router-dom";
 import ServerIndexItem from "./server_index_item";
 import AddServerForm from "./add_server_form";
 import JoinServerForm from "./join_server_form";
@@ -54,26 +54,37 @@ class ServerIndex extends React.Component{
     render(){
         const {currentUser, logout, createServer, joinServer} = this.props;
         const initialHeader = this.getHeader(currentUser, logout);
-        let serversList;
+        let serversList, errorsList;
         if (this.props.servers){
             serversList = this.props.servers.map((server) => {
               return <ServerIndexItem key={Math.random()} server={server} />;
             });
         }
+
+        const generateErrors = () => {
+          return this.props.errors.map((error) => {
+            return <li class={Math.random()} key={Math.random()}>{error}</li>;
+          });
+        };
         
+        errorsList = generateErrors();
+
         return (
           <main className="channels-main">
             <div className="server-nav">
               <ul className="server-icons">
                 <li>
-                  <i className="fas fa-users" id="user-icon"></i>
+                  <NavLink className='me' activeClassName='selected-server' to='/channels'>
+                    <i className="fas fa-users" id="user-icon"></i>
+                  </NavLink>
                 </li>
                 {serversList}
                 <button className="add-server-button" onClick={this.openModal}>+</button>
               </ul>
             </div>
+            {errorsList}
 
-            <div className="channels-nav" onClick={this.closeModal}>
+            <div className="second-nav" onClick={this.closeModal}>
                 <div></div>
                 {initialHeader}
             </div>

@@ -5,15 +5,15 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ServerIndexContainer from "./server/server_index_container";
+import ContentContainer from "./content/content_container";
 
 const App = () => (
   <>
-    <Switch>
       <AuthRoute exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/channels" component={ServerIndexContainer} />
-    </Switch>
+      <ProtectedRoute path="/channels" component={ServerIndexContainer} />
+      <ProtectedRoute path="/channels/:serverId" component={ContentContainer} />
   </>
 );
 

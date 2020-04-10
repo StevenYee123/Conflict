@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
       serverIds: Object.keys(state.entities.servers),
       errors: state.errors.session,
       servers: Object.values(state.entities.servers),
-      modal: state.modal,
+      modal: state.modal
     };
 };
 

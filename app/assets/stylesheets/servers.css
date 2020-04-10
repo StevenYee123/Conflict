@@ -18,6 +18,7 @@
 }
 
 .server-icons li {
+    cursor: pointer;
     background-color: #3a3d42;
     border-radius: 50px;
     padding: 13px 20px;
@@ -34,6 +35,10 @@
     border-radius: 10px;
 }
 
+.server-icons li a{
+    color: white
+}
+
 .add-server-button {
     color: white;
     background-color: #3a3d42;
@@ -45,6 +50,7 @@
     -o-transition: all .4s ease-in;
     -webkit-transition: all .4s ease-in;
     transition: all .4s ease-in;
+    cursor: pointer;
 }
 
 .add-server-button:hover{
@@ -59,4 +65,11 @@
 
 .channels-nav {
     width: 240px;
+}
+
+#active-server{
+    background-color: #7289DA;
+    padding: 13px 20px;
+    margin: 10px;
+    border-radius: 10px;
 }
