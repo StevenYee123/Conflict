@@ -108,15 +108,6 @@
   background-color: #228B22;
 }
 
-@keyframes fadeIn {
-  100% {
-    opacity:0;
-  }
-  50% {
-    opacity:1;
-  }
-}
-
 #server-field{
   color: gray;
   margin-bottom: 25px;
