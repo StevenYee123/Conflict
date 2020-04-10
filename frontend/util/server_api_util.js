@@ -35,11 +35,11 @@ export const deleteServer = (serverId) => {
     });
 }
 
-export const joinServer = (name) => {
+export const joinServer = (inviteLink) => {
     return $.ajax({
         method: "POST",
         url: `api/servers/join`,
-        data: {name}
+        data: {inviteLink}
     })
 }
 

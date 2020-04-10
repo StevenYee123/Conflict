@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
     fetchServers: () => dispatch(fetchServers()),
     createServer: (server) => dispatch(createServer(server)),
-    joinServer: (serverName) => dispatch(joinServer(serverName)),
+    joinServer: (inviteLink) => dispatch(joinServer(inviteLink)),
     receiveModal: () => dispatch(modalReceiver()),
     removeModal: () => dispatch(modalRemover())
 });

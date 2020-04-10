@@ -11,6 +11,7 @@
 #
 class Server < ApplicationRecord 
     validates :name, presence: true, length: {minimum: 3}
+    validates :invite_link, presence: true
     validates :leader_id, presence: true 
     validates :private_status, inclusion: {in: [true, false]}
 

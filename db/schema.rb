@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_013845) do
+ActiveRecord::Schema.define(version: 2020_04_10_190257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2020_04_10_013845) do
     t.boolean "private_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "invite_link"
+    t.index ["invite_link"], name: "index_servers_on_invite_link", unique: true
     t.index ["leader_id"], name: "index_servers_on_leader_id"
     t.index ["name"], name: "index_servers_on_name"
   end

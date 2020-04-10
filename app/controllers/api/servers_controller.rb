@@ -48,7 +48,8 @@ class Api::ServersController < ApplicationController
     end
 
     def join
-        @server = Server.find_by(name: params[:name])
+        @server = Server.find_by(invite_link: params[:inviteLink])
+        debugger;
         if @server
             ServerMembership.create(member_id: current_user.id, server_id: @server.id)
             render :show
@@ -72,7 +73,7 @@ class Api::ServersController < ApplicationController
 
     private
     def server_params
-       params.require(:server).permit(:name, :privateStatus, :leaderId) 
+       params.require(:server).permit(:name, :private_status, :leader_id, :invite_link) 
     end
 
     def initial_setup(user, server)

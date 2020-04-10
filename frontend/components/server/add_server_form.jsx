@@ -5,10 +5,11 @@ class AddServerForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      name: '',
+      name: "",
       leader_id: this.props.currentUser.id,
-      private_status: false
-    }
+      private_status: false,
+      invite_link: Math.random().toString(18).slice(2)
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
