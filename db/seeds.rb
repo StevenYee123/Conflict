@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.delete_all
-Server.delete_all
 ServerMembership.delete_all
 Channel.delete_all
+Server.delete_all
+User.delete_all
 
 #Our demo user!
 u1 = User.create!({email: "sallyseashell@gmail.com", username: "sillysally", password: "password" })
@@ -25,3 +25,6 @@ sm3 = ServerMembership.create!({server_id: s3.id, member_id: u2.id})
 c1 = Channel.create!({name: "Seashell Shore", server_id: s1.id})
 c2 = Channel.create!({name: "Land Hoooo", server_id: s2.id})
 c3 = Channel.create!({name: "Other Server", server_id: s3.id})
+c4 = Channel.create!({name: "Testy Boi", server_id: s3.id})
+c5 = Channel.create!({name: "Running out of names", server_id: s1.id})
+c6 = Channel.create!({name: "Keeping it even", server_id: s2.id})
