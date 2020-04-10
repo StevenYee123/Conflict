@@ -9,15 +9,22 @@ class Content extends React.Component{
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.stopEvent = this.stopEvent.bind(this);
+        this.getAbilities = this.getAbilities.bind(this);
     }
 
-    openModal(){
-      this.props.receiveModal();
+    openModal(form){
+      this.props.receiveModal(form);
     }
 
-    closeModal(e){
+    closeModal(form){
+      return e => {
         e.stopPropagation();
-        this.props.removeModal();
+        this.props.removeModal(form);
+      }
+    }
+
+    stopEvent(e){
+      e.stopPropagation();
     }
 
     componentDidMount() {
@@ -40,29 +47,39 @@ class Content extends React.Component{
         }
     }
 
+    getAbilities(){
+        const {currentUser, currentServer} = this.props;
+        if(currentUser.id === currentServer.leader_id){
+            return(
+                <button className="add-server-button" onClick={() => this.props.receiveModal('contentModal')}>
+                        +
+                </button>
+            )
+        }
+    }
+
     render(){
-        let serverName = ""; 
         const {currentUser, logout, currentServer} = this.props;
         const initialHeader = this.getHeader(currentUser, logout);
-
-        // if (server.name){
-        //     serverName = server.name;
-        // }
-
+        const leaderAbilities = this.getAbilities();
         return(
             <div className="second-nav">
                 <h1>{currentServer.name}</h1>
                 
                 <div className="logout-section">
                     {initialHeader}
-                    <button className="add-server-button" onClick={this.openModal}>+</button>
+                    {leaderAbilities}
                 </div>
 
-                <Modal className="server-modal" isOpen={this.props.modal} ariaHideApp={false} 
+                <Modal className="server-modal" isOpen={this.props.contentModal} ariaHideApp={false} 
                 style={{overlay:{ backgroundColor: 'rgba(0,0,0,0)'} }}>
                     <div className="modal-close-container">
-                <button onClick={this.closeModal}>X</button>
-              </div>
+                        <button onClick={this.closeModal('contentModal')}>X</button>
+                    </div>
+                    <div>
+                        <h1>Invite Peeps!</h1>
+                        {currentServer.invite_link}
+                    </div>
                 </Modal>
             </div>
         )

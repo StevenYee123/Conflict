@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         currentUser: state.entities.users[state.session.id],
         currentServer,
-        modal: state.modal
+        contentModal: state.modal.contentModal
     }
 }
 
@@ -20,8 +20,8 @@ const mapDispatchToProps = dispatch => {
       logout: () => dispatch(logout()),
       fetchServer: (serverId) => dispatch(fetchServer(serverId)),
       leaveServer: (serverId) => dispatch(leaveServer(serverId)),
-      receiveModal: () => dispatch(modalReceiver()),
-      removeModal: () => dispatch(modalRemover())
+      receiveModal: (modalType) => dispatch(modalReceiver(modalType)),
+      removeModal: (modalType) => dispatch(modalRemover(modalType))
     };
 }
 

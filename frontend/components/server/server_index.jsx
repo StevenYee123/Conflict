@@ -13,10 +13,6 @@ class ServerIndex extends React.Component{
         this.stopEvent = this.stopEvent.bind(this);
     }
 
-    componentWillMount(){
-      this.props.removeModal('serverFormModalOpen');
-    }
-
     componentDidMount(){
         this.props.fetchServers();
     }
@@ -38,7 +34,6 @@ class ServerIndex extends React.Component{
 
 
     render(){
-      debugger;
         const {currentUser, logout, createServer, joinServer} = this.props;
         let serversList, errorsList;
         if (this.props.servers){

@@ -49,7 +49,6 @@ class Api::ServersController < ApplicationController
 
     def join
         @server = Server.find_by(invite_link: params[:inviteLink])
-        debugger;
         if @server
             ServerMembership.create(member_id: current_user.id, server_id: @server.id)
             render :show
