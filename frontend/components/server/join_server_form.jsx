@@ -24,12 +24,13 @@ class JoinServerForm extends React.Component{
 
     render(){
         return (
-          <div className="join-server-form" onSubmit={this.handleSubmit}>
+          <div className="modal-half-container" onSubmit={this.handleSubmit}>
             <h1>Assimilation!</h1>
-            <i className="fas fa-american-sign-language-interpreting"></i>
+            <i className="fas fa-american-sign-language-interpreting" id="join-server-logo"></i>
+            <h1>Join a Server!</h1>
             <form onSubmit={this.handleSubmit}>
-              <input type="text" onChange={this.handleChange("name")} />
-              <input type="submit" value="Join Server!" />
+              <input type="text" onChange={this.handleChange("name")} id="server-field"/>
+              <input type="submit" value="Join Server!" id="join-server-button"/>
             </form>
           </div>
         );

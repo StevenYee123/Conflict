@@ -26,12 +26,12 @@ class AddServerForm extends React.Component{
 
   render(){
     return (
-      <div className="add-server-container">
+      <div className="modal-half-container">
         <h1>Create some Conflict!</h1>
         <i className="fab fa-battle-net" id="add-server-logo"></i>
         <h1>Make a Server!</h1>
         <form className="add-server-form" onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.handleChange('name')} id="add-server-field"/>
+          <input type="text" onChange={this.handleChange('name')} id="server-field"/>
           <input type="submit" value="Create Server!" id="add-server-button"/>
         </form>
       </div>

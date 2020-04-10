@@ -9,7 +9,7 @@
     left: 0;
     margin: auto;
     animation: modal-grow .25s;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 @keyframes modal-grow{
@@ -60,14 +60,14 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.add-server-container{
+.modal-half-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.add-server-container h1{
+.modal-half-container h1{
   font-size: 25px;
   color: gray;
 }
@@ -76,6 +76,7 @@
   height: 49px;
   width: 245px;
   font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
   border: 1px solid black;
   background-color: #7289DA;
   color: white;
@@ -92,6 +93,21 @@
 
 }
 
+#join-server-button{
+  height: 49px;
+  width: 245px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-transition: all .2s ease-in;
+  background-color: rgb(45, 184, 45);
+  cursor: pointer;
+  color: white;
+}
+
+#join-server-button:hover{
+  background-color: #228B22;
+}
+
 @keyframes fadeIn {
   100% {
     opacity:0;
@@ -101,7 +117,7 @@
   }
 }
 
-#add-server-field{
+#server-field{
   color: gray;
   margin-bottom: 25px;
   padding-left: 10px;
@@ -112,5 +128,9 @@
 #add-server-logo{
   font-size: 180px;
   color: #7289DA;
+}
 
+#join-server-logo{
+  font-size: 180px;
+  color: rgb(45, 184, 45);
 }
