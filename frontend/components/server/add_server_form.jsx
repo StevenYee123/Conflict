@@ -1,23 +1,41 @@
-import { connect } from "react-redux";
 import React from "react";
-import { modalCreateServer } from "../../actions/modal_actions";
+import { render } from "react-dom";
 
-function AddServerForm({ createServerModal }){
-    const createServer = createServerModal;
+class AddServerForm extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name: '',
+      leader_id: this.props.currentUser.id,
+      private_status: false
+    }
 
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.createServer(this.state);
+  }
+
+  handleChange(field){
+    return e => {
+      this.setState({[field]: e.target.value});
+    }
+  }
+
+  render(){
     return (
-      <div className="server-form-container">
-        <h1>More Conflict!</h1>
-        <div className="choices-container">
-            <button onClick={createServer}>Create a Server!</button>
-        </div>
+      <div className="add-server-container">
+        <h1>Create some Conflict!</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" onChange={this.handleChange('name')} />
+          <input type="submit" value="Create Server!" />
+        </form>
       </div>
     );
-
+  }
+  
 }
 
-const mapDispatchToProps = dispatch => ({
-    createServerModal: (server) => dispatch(modalCreateServer(server))
-})
-
-export default connect(null, mapDispatchToProps)(AddServerForm);
+export default AddServerForm;

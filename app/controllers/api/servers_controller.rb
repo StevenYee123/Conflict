@@ -1,8 +1,8 @@
 class Api::ServersController < ApplicationController 
     before_action :ensure_logged_in
     def create
-        @server = Server.new(name: params[:data][:name], private_status: params[:data][:privateStatus],
-                            leader_id: params[:data][:leaderId], invite_link: params[:data][:inviteLink])
+        debugger
+        @server = Server.new(server_params)
         @server.leader_id = current_user.id
         if @server.save
             if current_user.id == @server.leader.id
@@ -49,8 +49,10 @@ class Api::ServersController < ApplicationController
     end
 
     def join
-        @server = Server.find_by(invite_link: params[:invite_link])
-        if @server
+        @server = Server.find_by(name: params[:name])
+        debugger
+        if @server && !current_user.servers.include(@server)
+            debugger
             ServerMembership.create(user_id: current_user.id, server_id: @server.id)
             render :show
         elsif current_user.servers.include?(@server)
@@ -73,7 +75,7 @@ class Api::ServersController < ApplicationController
 
     private
     def server_params
-       params.require(:server).permit(:name, :privateStatus, :leaderId, :inviteLink) 
+       params.require(:server).permit(:name, :privateStatus, :leaderId) 
     end
 
     def initial_setup(user, server)

@@ -14,9 +14,9 @@ Channel.delete_all
 u1 = User.create!({email: "sallyseashell@gmail.com", username: "sillysally", password: "password" })
 u2 = User.create!({email: "johnnydoe@gmail.com", username: "ScubaSteve", password: "password"})
 
-s1 = Server.create!({name: "BananaRama", leader_id: u1.id, private_status: false, invite_link: "3kQ_EeIXWS2Gj3fzE1iltw"})
-s2 = Server.create!({name: "ScubaLand", leader_id: u1.id, private_status: false, invite_link: "hXxJuW8VOO11BBoux-raYQ"})
-s3 = Server.create!({name: "TestServer", leader_id: u2.id, private_status: false, invite_link: "DpzZrhvdBWFJFBxnGhN71Q"})
+s1 = Server.create!({name: "BananaRama", leader_id: u1.id, private_status: false})
+s2 = Server.create!({name: "ScubaLand", leader_id: u1.id, private_status: false})
+s3 = Server.create!({name: "TestServer", leader_id: u2.id, private_status: false})
 
 sm1 = ServerMembership.create!({server_id: s1.id, member_id: u1.id})
 sm2 = ServerMembership.create({server_id: s2.id, member_id: u1.id})
