@@ -1,7 +1,6 @@
 class Api::ServersController < ApplicationController 
     before_action :ensure_logged_in
     def create
-        debugger
         @server = Server.new(server_params)
         @server.leader_id = current_user.id
         if @server.save
@@ -51,9 +50,9 @@ class Api::ServersController < ApplicationController
     def join
         @server = Server.find_by(name: params[:name])
         debugger
-        if @server && !current_user.servers.include(@server)
+        if @server
             debugger
-            ServerMembership.create(user_id: current_user.id, server_id: @server.id)
+            ServerMembership.create(member_id: current_user.id, server_id: @server.id)
             render :show
         elsif current_user.servers.include?(@server)
             render json: ["You're already part of this server!"], status: 404

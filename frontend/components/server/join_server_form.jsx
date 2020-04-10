@@ -26,6 +26,7 @@ class JoinServerForm extends React.Component{
         return (
           <div className="join-server-form" onSubmit={this.handleSubmit}>
             <h1>Assimilation!</h1>
+            <i className="fas fa-american-sign-language-interpreting"></i>
             <form onSubmit={this.handleSubmit}>
               <input type="text" onChange={this.handleChange("name")} />
               <input type="submit" value="Join Server!" />

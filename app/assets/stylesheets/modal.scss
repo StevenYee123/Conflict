@@ -1,0 +1,116 @@
+.server-modal{
+    background-color: white;
+    width: 540px;
+    height: 420px;
+    position: relative;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: modal-grow .25s;
+    border-radius: 10px;
+}
+
+@keyframes modal-grow{
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.modal-close-container{
+    display: flex;
+    justify-content: flex-end;
+    height: 20px;
+}
+
+.modal-close-container button{
+    color: tomato;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 10px;
+    -webkit-transition: all .5s ease-in;
+    cursor: pointer;
+}
+
+.modal-close-container button:hover{
+  background-color: tomato;
+  border-radius: 10px;
+  color: white;
+}
+
+.server-modal-content{
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.server-modal-content div{
+    border: 1px solid gray;
+    width: 45%;
+}
+
+.modal-content-header h1{
+    font-size: 30px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-server-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-server-container h1{
+  font-size: 25px;
+  color: gray;
+}
+
+#add-server-button{
+  height: 49px;
+  width: 245px;
+  font-size: 25px;
+  border: 1px solid black;
+  background-color: #7289DA;
+  color: white;
+  cursor: pointer;
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+#add-server-button:hover{
+  background-color: rgb(26, 69, 224);
+  color: rgb(255, 255, 255);
+
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity:0;
+  }
+  50% {
+    opacity:1;
+  }
+}
+
+#add-server-field{
+  color: gray;
+  margin-bottom: 25px;
+  padding-left: 10px;
+  margin-left: 40px;
+  border-bottom: 1px solid gray;
+}
+
+#add-server-logo{
+  font-size: 180px;
+  color: #7289DA;
+
+}

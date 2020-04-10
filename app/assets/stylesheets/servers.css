@@ -19,14 +19,19 @@
 
 .server-icons li {
     background-color: #3a3d42;
-    border-radius: 20px;
+    border-radius: 50px;
     padding: 13px 20px;
     margin: 10px;
     color: white;
+    -moz-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    -webkit-transition: all .4s ease-in;
+    transition: all .4s ease-in;
 }
 
 .server-icons li:hover {
     background-color: #7289DA;
+    border-radius: 10px;
 }
 
 .add-server-button {
@@ -36,11 +41,15 @@
     border: 1px dashed white;
     border-radius: 20px;
     margin-top: 10px;
+    -moz-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    -webkit-transition: all .4s ease-in;
+    transition: all .4s ease-in;
 }
 
 .add-server-button:hover{
     background-color: #7289DA;
-    
+    border-radius: 10px;
 }
 
 #user-icon {
