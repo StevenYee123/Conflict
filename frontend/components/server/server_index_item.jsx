@@ -16,7 +16,7 @@ class ServerIndexItem extends React.Component{
         const path = this.props.location.pathname;
         const activeServerId = parseInt(path.slice(path.length - 2));
         let isActive = "";
-
+        debugger;
         if (activeServerId === server.id) isActive = "active-server";
 
         return(
@@ -24,7 +24,7 @@ class ServerIndexItem extends React.Component{
                 <NavLink
                     activeClassName={`selected-server`}
                     to={`/channels/${server.id}`}>
-                    <strong>{initial}</strong>
+                    <strong>{this.props.location.pathname}</strong>
                 </NavLink>
             </li>
         )
