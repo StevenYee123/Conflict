@@ -49,9 +49,7 @@ class Api::ServersController < ApplicationController
 
     def join
         @server = Server.find_by(name: params[:name])
-        debugger
         if @server
-            debugger
             ServerMembership.create(member_id: current_user.id, server_id: @server.id)
             render :show
         elsif current_user.servers.include?(@server)
