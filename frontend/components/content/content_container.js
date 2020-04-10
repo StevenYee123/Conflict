@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
     let currentServer = selectServer(state, ownProps.match.params.serverId) || placeHolderServer;
     return {
         currentUser: state.entities.users[state.session.id],
-        currentServer
+        currentServer,
+        modal: state.modal
     }
 }
 

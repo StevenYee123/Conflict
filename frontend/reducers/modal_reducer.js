@@ -6,11 +6,11 @@ const modalReducer = (state = false, action) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_MODAL:
-            return true;
+            return Object.assign({}, state, {[action.modalType]: true});
         case REMOVE_MODAL:
-            return false
+            return Object.assign({}, state, { [action.modalType]: false });
         default: 
-            return defaultModal;
+            return {};
     }
 }
 

@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
       serverIds: Object.keys(state.entities.servers),
       errors: state.errors.session,
       servers: Object.values(state.entities.servers),
-      modal: state.modal
+      serverFormModalOpen: state.modal.serverFormModalOpen,
     };
 };
 
@@ -20,8 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
     fetchServers: () => dispatch(fetchServers()),
     createServer: (server) => dispatch(createServer(server)),
     joinServer: (inviteLink) => dispatch(joinServer(inviteLink)),
-    receiveModal: () => dispatch(modalReceiver()),
-    removeModal: () => dispatch(modalRemover())
+    receiveModal: (modalType) => dispatch(modalReceiver(modalType)),
+    removeModal: (modalType) => dispatch(modalRemover(modalType))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);

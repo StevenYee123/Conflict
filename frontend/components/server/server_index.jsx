@@ -8,31 +8,28 @@ import Modal from "react-modal";
 class ServerIndex extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-          showModal : true
-        }
 
-        this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.stopEvent = this.stopEvent.bind(this);
+    }
+
+    componentWillMount(){
+      this.props.removeModal('serverFormModalOpen');
     }
 
     componentDidMount(){
         this.props.fetchServers();
     }
 
-    createServer(e){
-        e.preventDefault();
-        this.props.addServerModal();
+    openModal(form){
+      this.props.receiveModal(form);
     }
 
-    openModal(){
-      this.props.receiveModal();
-    }
-
-    closeModal(e){
+    closeModal(form){
+      return e => {
         e.stopPropagation();
-        this.props.removeModal();
+        this.props.removeModal(form);
+      }
     }
 
     stopEvent(e){
@@ -41,6 +38,7 @@ class ServerIndex extends React.Component{
 
 
     render(){
+      debugger;
         const {currentUser, logout, createServer, joinServer} = this.props;
         let serversList, errorsList;
         if (this.props.servers){
@@ -67,15 +65,17 @@ class ServerIndex extends React.Component{
                   </NavLink>
                 </li>
                 {serversList}
-                <button className="add-server-button" onClick={this.openModal}>+</button>
+                <button className="add-server-button" onClick={() => this.props.receiveModal('serverFormModalOpen')}>
+                  +
+                </button>
               </ul>
             </div>
             {errorsList}
 
-            <Modal className="server-modal" isOpen={this.props.modal} ariaHideApp={false} 
+            <Modal className="server-modal" isOpen={this.props.serverFormModalOpen} ariaHideApp={false} 
             style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)'} }}>
               <div className="modal-close-container">
-                <button onClick={this.closeModal}>X</button>
+                <button onClick={this.closeModal('serverFormModalOpen')}>X</button>
               </div>
               <div className="modal-content-header"> 
                 <h1>More Conflict is Good!</h1>
