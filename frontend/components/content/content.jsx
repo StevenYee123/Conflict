@@ -30,6 +30,7 @@ class Content extends React.Component{
     componentDidMount() {
         const serverId = this.props.match.params.serverId;
         this.props.fetchServer(serverId);
+        this.props.fetchChannels(serverId);
     }
     
     stopEvent(e){
@@ -59,7 +60,8 @@ class Content extends React.Component{
     }
 
     render(){
-        const {currentUser, logout, currentServer} = this.props;
+        const {currentUser, logout, currentServer, channels} = this.props;
+        debugger;
         const initialHeader = this.getHeader(currentUser, logout);
         const leaderAbilities = this.getAbilities();
         return(
