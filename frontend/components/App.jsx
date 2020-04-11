@@ -6,7 +6,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ServerIndexContainer from "./server/server_index_container";
 import ContentContainer from "./content/content_container";
-import ChannelShowContainer from "./channel/channel_show";
+import ChannelShowContainer from "./channel/channel_show_container";
 
 const App = () => (
   <>

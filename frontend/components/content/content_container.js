@@ -7,7 +7,7 @@ import {logout} from "../../actions/session_actions";
 import Content from "./content";
 
 const mapStateToProps = (state, ownProps) => {
-    const placeHolderServer = {name: "Ruh Roh!"};
+    const placeHolderServer = {name: "Loading, please wait"};
     let currentServer = selectServer(state, ownProps.match.params.serverId) || placeHolderServer;
     let channels = grabChannels(state);
     return {

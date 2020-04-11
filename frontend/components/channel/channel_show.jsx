@@ -8,7 +8,7 @@ class ChannelShow extends React.Component{
     render(){
         return(
             <div className="last-container">
-                <h1>Hello from Channel Show!!</h1>
+                <h1>{this.props.currentChannel.name}</h1>
             </div>
         )
     }

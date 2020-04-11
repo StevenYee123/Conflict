@@ -10,13 +10,14 @@ class Content extends React.Component{
         super(props);
 
         this.state = {
-            hideOptions: "show"
+            hideOptions: ""
         }
 
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
         this.stopEvent = this.stopEvent.bind(this);
         this.getAbilities = this.getAbilities.bind(this);
+        this.showOptions = this.showOptions.bind(this);
     }
 
     openModal(form){
@@ -62,9 +63,18 @@ class Content extends React.Component{
         if(currentUser.id === currentServer.leader_id){
             return(
                 <button className="channel-options-button" onClick={() => this.props.receiveModal('contentModal')}>
-                    <i className="fas fa-chevron-circle-down" id="dropdown-icon"></i>
+                    Create a Channel!
+                    <i className="fas fa-comments" id="message-icon-button"></i>
                 </button>
             )
+        }
+    }
+
+    showOptions(){
+        if (this.state.hideOptions === "show"){
+            this.setState({hideOptions: ""});
+        } else {
+            this.setState({hideOptions: "show"});
         }
     }
 
@@ -76,10 +86,12 @@ class Content extends React.Component{
             <div className="second-nav">
                 <div className="channel-header">
                     <strong>{currentServer.name}</strong>
-                    {leaderAbilities}
-                    <div className="channel-header-options">
+                    <button className="options-dropdown-button" onClick={this.showOptions}>
+                        <i className="fas fa-chevron-circle-down" id="dropdown-icon"></i>
+                    </button>
+                    <div className={`channel-header-options ${this.state.hideOptions}`} id={this.state.hideOptions}>
                         <ul>
-                            <li>La</li>
+                            <li>{leaderAbilities}</li>
                             <li>la</li>
                             <li>la</li>
                         </ul>
@@ -87,7 +99,7 @@ class Content extends React.Component{
                 </div>
                 <div className="channels-container">
                     <ChannelIndex channels={channels} currentServer={currentServer} 
-                    currentUser={currentUser} fetchChannels={fetchChannels}/>
+                    currentUser={currentUser} fetchChannels={fetchChannels} path={this.props.location.pathname}/>
                 </div>
                 <div className="logout-section">
                     {initialHeader}

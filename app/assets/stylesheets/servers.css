@@ -73,3 +73,32 @@
     margin: 10px;
     border-radius: 10px;
 }
+
+.server-index-item{
+    position: relative;
+}
+
+.server-name-preview{
+    border-radius: 5px;
+    position: absolute;
+    bottom: 20px;
+    left: 70px;
+    width: 200px;
+    height: 30px;
+    text-align: left;
+    background-color: black;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    display: none;
+    -webkit-animation: fadeIn ease .9s;
+}
+
+.server-index-item:hover > .server-name-preview{
+    display: block;
+}
+
+.server-name-preview strong{
+    position: relative;
+    top: 5px;
+}

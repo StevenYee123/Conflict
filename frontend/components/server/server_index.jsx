@@ -34,11 +34,19 @@ class ServerIndex extends React.Component{
 
 
     render(){
-        const {currentUser, logout, createServer, joinServer, fetchChannels} = this.props;
+        const {currentUser, logout, createServer, joinServer, fetchChannels, channels} = this.props;
         let serversList, errorsList;
         if (this.props.servers){
             serversList = this.props.servers.map((server) => {
-              return <ServerIndexItem key={Math.random()} server={server} fetchChannels={fetchChannels}/>;
+              return (
+                <div className="server-index-item" key={Math.random()} >
+                  <ServerIndexItem server={server}
+                  fetchChannels={fetchChannels} channels={channels} />
+                  <div className="server-name-preview">
+                    <strong>{server.name}</strong>
+                  </div>
+                </div>
+              );
             });
         }
 
@@ -68,7 +76,7 @@ class ServerIndex extends React.Component{
             {errorsList}
 
             <Modal className="server-modal" isOpen={this.props.serverFormModalOpen} ariaHideApp={false} 
-            style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999'}}} >
+            style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)', zIndex: 999}}} >
               <div className="modal-close-container">
                 <button onClick={this.closeModal('serverFormModalOpen')}>X</button>
               </div>

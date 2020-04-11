@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
       errors: state.errors.session,
       servers: Object.values(state.entities.servers),
       serverFormModalOpen: state.modal.serverFormModalOpen,
+      channels: Object.values(state.entities.channels)
     };
 };
 

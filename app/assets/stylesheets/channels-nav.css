@@ -16,20 +16,70 @@
 }
 
 .channel-header-options{
-    width: 230px;
-    background-color: white;
+    width: 250px;
+    background-color: #1f2022;
+    border: 1px solid black;
     position: absolute;
-    top: 40px;
-    left: 20px;
-    -webkit-animation: fadeIn ease .9s;
-    -moz-animation: fadeIn ease .9s;
-    -o-animation: fadeIn ease .9s;
-    -ms-animation: fadeIn ease .9s;
+    top: 50px;
+    -webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     display: none;
 }
 
-.channel-header-options .show-options{
+#show{
     display: block;
+}
+
+@-webkit-keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+
+.channel-header-options button{
+    width: 100%;
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+    -webkit-transition: .5s ease-in-out;
+}
+
+.channel-header-options button:hover{
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+}
+
+#message-icon-button{
+    color: white;
+    padding-left: 100px;
 }
 
 .channel-header strong{
@@ -40,8 +90,10 @@
 }
 
 .channel-options-button{
-    width: 20px;
-    margin-top: 10px;
+    background-color: #303133;
+}
+
+.options-dropdown-button{
     background-color: #303133;
 }
 

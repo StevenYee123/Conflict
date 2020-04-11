@@ -5,3 +5,7 @@ export const selectServer = (state, serverId) => {
 export const grabChannels = (state) => {
   return state.entities.channels
 }
+
+export const selectChannel = (state, channelId) => {
+  return state.entities.channels[channelId]
+}

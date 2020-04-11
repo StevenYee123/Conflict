@@ -11,11 +11,11 @@ class ServerIndexItem extends React.Component{
     }
 
     render(){
-        const {server} = this.props;
+        const {server, channels} = this.props;
         const initial = server.name.slice(0, 1);
         const path = this.props.location.pathname;
         const getNum = path.split("#")[0].split("/");
-        let activeServerId;
+        let activeServerId, firstChannel;
 
         if(getNum.length === 3){
             activeServerId = parseInt(getNum[getNum.length - 1]);
@@ -33,8 +33,8 @@ class ServerIndexItem extends React.Component{
             <li id={isActive}>
                 <strong onClick={() => (
                     this.props.fetchChannels(this.props.server.id)
-                        .then(this.props.history.push(`/channels/${this.props.server.id}`))
-                )} >{initial}</strong>
+                    .then((resp) => 
+                    this.props.history.push(`/channels/${this.props.server.id}/${Object.keys(resp.channels)[0]}`)))} >{initial}</strong>
             </li>
         )
     }

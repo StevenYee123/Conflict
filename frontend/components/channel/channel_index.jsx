@@ -6,18 +6,21 @@ class ChannelIndex extends React.Component{
         super(props);
     }
 
-    componentDidMount(){
-        this.props.fetchChannels(this.props.currentServer.id);
-    }
 
     render(){
         const {channels, currentUser, currentServer} = this.props;
+        if (Object.values(channels)){
+
+        }
         const channelVals = Object.values(this.props.channels);
-        const channelLinks = channelVals.map((channel) => (
-            <Link key={Math.random()} to={`/channels/${currentServer.id}/${channel.id}`}>
-                <strong id="pound-sign">#</strong>  
-            {channel.name}</Link>
-        ))
+        const channelLinks = channelVals.map((channel) => {
+            
+            return (
+                <Link key={Math.random()} to={`/channels/${currentServer.id}/${channel.id}`}>
+                    <strong id="pound-sign">#</strong>  
+                {channel.name}</Link>
+            )
+        });
 
         return(
             <>
