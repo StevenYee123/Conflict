@@ -21,16 +21,15 @@
     position: absolute;
     top: 40px;
     left: 20px;
-      -webkit-animation: fadeIn ease 3s;
-      -moz-animation: fadeIn ease 3s;
-      -o-animation: fadeIn ease 3s;
-      -ms-animation: fadeIn ease 3s;
+      -webkit-animation: fadeIn ease .9s;
+      -moz-animation: fadeIn ease .9s;
+      -o-animation: fadeIn ease .9s;
+      -ms-animation: fadeIn ease .9s;
     display: none;
 }
 
-.channel-header:hover > .channel-header-options{
+.channel-header-options .show-options{
     display: block;
-
 }
 
 .channel-header strong{
@@ -38,6 +37,24 @@
     padding-top: 15px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.channel-options-button{
+    width: 20px;
+    margin-top: 10px;
+    background-color: #303133;
+}
+
+#dropdown-icon{
+    border-radius: 10px;
+    color: #303030;
+    background-color: white;
+}
+
+#dropdown-icon:hover{
+    background-color: #303133;
+    color: white;
+    cursor: pointer;
 }
 
 .channels-container{
@@ -86,7 +103,7 @@
 .logout-section button:hover{
     color: white;
     background-color: red;
-    
+    content: "Goodbye!";
 }
 
 #pound-sign{

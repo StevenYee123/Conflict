@@ -2,11 +2,16 @@ import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import Modal from "react-modal";
 import ChannelIndex from "../channel/channel_index";
+import AddChannelForm from "../channel/add_channel_form";
 import ChannelShow from "../channel/channel_show";
 
 class Content extends React.Component{
     constructor(props){
         super(props);
+
+        this.state = {
+            hideOptions: "show"
+        }
 
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
@@ -56,15 +61,15 @@ class Content extends React.Component{
         const {currentUser, currentServer} = this.props;
         if(currentUser.id === currentServer.leader_id){
             return(
-                <button className="add-server-button" onClick={() => this.props.receiveModal('contentModal')}>
-                    <i className="fas fa-chevron-circle-down"></i>
+                <button className="channel-options-button" onClick={() => this.props.receiveModal('contentModal')}>
+                    <i className="fas fa-chevron-circle-down" id="dropdown-icon"></i>
                 </button>
             )
         }
     }
 
     render(){
-        const {currentUser, logout, currentServer, channels, fetchChannels} = this.props;
+        const {currentUser, logout, currentServer, channels, fetchChannels, createChannel} = this.props;
         const initialHeader = this.getHeader(currentUser, logout);
         const leaderAbilities = this.getAbilities();
         return(
@@ -95,6 +100,7 @@ class Content extends React.Component{
                         <button onClick={this.closeModal('contentModal')}>X</button>
                     </div>
                     <div>
+                        <AddChannelForm currentServer={currentServer} createChannel={createChannel}/>
                         <h1>Invite Peeps!</h1>
                         {currentServer.invite_link}
                     </div>

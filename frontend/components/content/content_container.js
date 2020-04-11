@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {fetchServer, createServer, joinServer, removeServer, updateServer} from "../../actions/server_actions";
-import {fetchChannels} from "../../actions/channel_actions";
+import {fetchChannels, createChannel} from "../../actions/channel_actions";
 import {modalReceiver, modalRemover} from "../../actions/modal_actions";
 import { selectServer, grabChannels } from "../../reducers/selectors";
 import {logout} from "../../actions/session_actions";
@@ -25,7 +25,8 @@ const mapDispatchToProps = dispatch => {
       leaveServer: (serverId) => dispatch(leaveServer(serverId)),
       receiveModal: (modalType) => dispatch(modalReceiver(modalType)),
       removeModal: (modalType) => dispatch(modalRemover(modalType)),
-      fetchChannels: (serverId) => dispatch(fetchChannels(serverId))
+      fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
+      createChannel: (channel) => dispatch(createChannel(channel))
     };
 }
 
