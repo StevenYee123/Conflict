@@ -25,12 +25,16 @@ class AddChannelForm extends React.Component {
 
     render(){
         return (
-            <div className="add-channel-form">
+            <div className="add-channel-container">
                 <h1>Create a new channel!</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="channel-name-field">Enter a new Channel name!</label>
-                    <input type="text" onChange={this.handleChange("name")} id="channel-name-field"/>
-                    <input type="submit" value="Create!"/>
+                <form onSubmit={this.handleSubmit} className="add-channel-form">
+                    <i className="fas fa-comments" id="message-icon"></i>
+                    <label htmlFor="channel-name-field" className="add-channel-text">
+                        Enter a new Channel name!
+                    </label>
+                    <input type="text" onChange={this.handleChange("name")} id="channel-name-field"
+                        placeholder="Enter Channel Name?"/>
+                    <input type="submit" value="Create!" className="add-channel-button"/>
                 </form>
             </div>
         )

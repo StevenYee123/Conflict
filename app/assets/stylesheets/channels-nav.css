@@ -21,10 +21,10 @@
     position: absolute;
     top: 40px;
     left: 20px;
-      -webkit-animation: fadeIn ease .9s;
-      -moz-animation: fadeIn ease .9s;
-      -o-animation: fadeIn ease .9s;
-      -ms-animation: fadeIn ease .9s;
+    -webkit-animation: fadeIn ease .9s;
+    -moz-animation: fadeIn ease .9s;
+    -o-animation: fadeIn ease .9s;
+    -ms-animation: fadeIn ease .9s;
     display: none;
 }
 

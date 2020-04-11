@@ -68,7 +68,7 @@ class ServerIndex extends React.Component{
             {errorsList}
 
             <Modal className="server-modal" isOpen={this.props.serverFormModalOpen} ariaHideApp={false} 
-            style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)'} }}>
+            style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999'}}} >
               <div className="modal-close-container">
                 <button onClick={this.closeModal('serverFormModalOpen')}>X</button>
               </div>

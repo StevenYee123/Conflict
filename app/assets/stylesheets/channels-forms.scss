@@ -1,0 +1,106 @@
+.channel-modal{
+    background-color: rgb(240, 234, 234);
+    width: 540px;
+    height: 420px;
+    position: relative;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: modal-grow .25s;
+    border-radius: 10px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+}
+
+.channel-modal-close-container{
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+    background-color: rgb(161, 218, 75);
+    border-radius: 10px 10px 0 0;
+}
+
+.channel-modal-close-container button{
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+    background: transparent;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-transition: .5s ease-in-out;
+}
+
+.channel-modal-close-container button:hover{
+    background-color: red;
+    color: white;
+}
+
+.add-channel-container{
+    text-align: center;
+    background-color: rgb(161, 218, 75);
+    height: 400px;
+    border-radius: 0 0 10px 10px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+}
+
+.add-channel-container h1{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.add-channel-form{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 364px;
+    border-radius: 0 0 10px 10px;
+}
+
+#message-icon{
+    font-size: 175px;
+    padding-left: 180px;
+    color: white;
+}
+
+.add-channel-text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+#channel-name-field{
+    background-color: rgb(161, 218, 75);
+    width: 200px;
+    border-bottom: 2px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-left: 170px;
+}
+
+.add-channel-button{
+    width: 200px;
+    padding: 10px;
+    border: 3px solid white;
+    margin-left: 170px;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: rgb(161, 218, 75);
+    -webkit-transition: .4s ease-in-out;
+    color: white;
+    cursor: pointer;
+}
+
+.add-channel-button:hover{
+    background-color: white;
+    color: rgb(161, 218, 75);
+}

@@ -10,6 +10,9 @@
     margin: auto;
     animation: modal-grow .25s;
     border-radius: 10px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
 }
 
 @keyframes modal-grow{
@@ -36,6 +39,7 @@
     background-color: rgb(240, 234, 234);
     -webkit-transition: all .5s ease-in;
     cursor: pointer;
+    background: transparent;
 }
 
 .modal-close-container button:hover{
@@ -67,9 +71,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
 }
 
 .modal-half-container h1{

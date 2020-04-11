@@ -94,15 +94,15 @@ class Content extends React.Component{
                 </div>
 
 
-                <Modal className="server-modal" isOpen={this.props.contentModal} ariaHideApp={false} 
-                style={{overlay:{ backgroundColor: 'rgba(0,0,0,0)'} }}>
-                    <div className="modal-close-container">
+                <Modal className="channel-modal" isOpen={this.props.contentModal} ariaHideApp={false} 
+                    style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
+                    <div className="channel-modal-close-container">
                         <button onClick={this.closeModal('contentModal')}>X</button>
                     </div>
                     <div>
                         <AddChannelForm currentServer={currentServer} createChannel={createChannel}/>
-                        <h1>Invite Peeps!</h1>
-                        {currentServer.invite_link}
+                        {/* <h1>Invite Peeps!</h1>
+                        {currentServer.invite_link} */}
                     </div>
                 </Modal>
             </div>
