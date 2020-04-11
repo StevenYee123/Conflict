@@ -1,0 +1,95 @@
+.second-nav{
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.channel-header{
+    height: 50px;
+    background-color: #303133;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18), 0 6px 6px rgba(0,0,0,0.18);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.channel-header-options{
+    width: 230px;
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+      -webkit-animation: fadeIn ease 3s;
+      -moz-animation: fadeIn ease 3s;
+      -o-animation: fadeIn ease 3s;
+      -ms-animation: fadeIn ease 3s;
+    display: none;
+}
+
+.channel-header:hover > .channel-header-options{
+    display: block;
+
+}
+
+.channel-header strong{
+    font-size: 32px;
+    padding-top: 15px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.channels-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #303133;
+    height: 86%;
+}
+
+.channels-container a {
+    color: white;
+    padding: 10px;
+    padding-left: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-transition: ease-in-out .3s;
+}
+
+.channels-container a:hover{
+    background-color: gray;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.logout-section{
+    background-color: #1f2024;
+    color: white;
+    font-size: 25px;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
+
+.logout-section button{
+    border-radius: 10px;
+    background-color: #1f2024;
+    color: red;
+    border: 2px solid red;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 10px;
+    -webkit-transition: all .4s ease-in;
+}
+
+.logout-section button:hover{
+    color: white;
+    background-color: red;
+    
+}
+
+#pound-sign{
+    opacity: .6;
+    padding-right: 10px;
+}

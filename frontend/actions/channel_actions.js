@@ -21,14 +21,14 @@ export const receiveChannel = channel => {
 
 export const removeChannel = channelId => {
     return {
-        REMOVE_CHANNEL,
+        type: REMOVE_CHANNEL,
         channelId
     };
 };
 
 export const receiveChannelErrors = errors => {
     return {
-        RECEIVE_CHANNEL_ERRORS,
+        type: RECEIVE_CHANNEL_ERRORS,
         errors
     };
 };

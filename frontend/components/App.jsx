@@ -6,6 +6,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ServerIndexContainer from "./server/server_index_container";
 import ContentContainer from "./content/content_container";
+import ChannelShowContainer from "./channel/channel_show";
 
 const App = () => (
   <>
@@ -14,6 +15,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/channels" component={ServerIndexContainer} />
       <ProtectedRoute path="/channels/:serverId" component={ContentContainer} />
+      <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelShowContainer} />
   </>
 );
 

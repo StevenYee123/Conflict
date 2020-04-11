@@ -1,6 +1,8 @@
 import React from "react";
-import { Switch, withRouter } from "react-router-dom";
+import { Switch, withRouter, Route } from "react-router-dom";
 import Modal from "react-modal";
+import ChannelIndex from "../channel/channel_index";
+import ChannelShow from "../channel/channel_show";
 
 class Content extends React.Component{
     constructor(props){
@@ -30,7 +32,9 @@ class Content extends React.Component{
     componentDidMount() {
         const serverId = this.props.match.params.serverId;
         this.props.fetchServer(serverId);
-        this.props.fetchChannels(serverId);
+        if(serverId){
+            this.props.fetchChannels(serverId);
+        }
     }
     
     stopEvent(e){
@@ -53,25 +57,37 @@ class Content extends React.Component{
         if(currentUser.id === currentServer.leader_id){
             return(
                 <button className="add-server-button" onClick={() => this.props.receiveModal('contentModal')}>
-                        +
+                    <i className="fas fa-chevron-circle-down"></i>
                 </button>
             )
         }
     }
 
     render(){
-        const {currentUser, logout, currentServer, channels} = this.props;
-        debugger;
+        const {currentUser, logout, currentServer, channels, fetchChannels} = this.props;
         const initialHeader = this.getHeader(currentUser, logout);
         const leaderAbilities = this.getAbilities();
         return(
             <div className="second-nav">
-                <h1>{currentServer.name}</h1>
-                
+                <div className="channel-header">
+                    <strong>{currentServer.name}</strong>
+                    {leaderAbilities}
+                    <div className="channel-header-options">
+                        <ul>
+                            <li>La</li>
+                            <li>la</li>
+                            <li>la</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="channels-container">
+                    <ChannelIndex channels={channels} currentServer={currentServer} 
+                    currentUser={currentUser} fetchChannels={fetchChannels}/>
+                </div>
                 <div className="logout-section">
                     {initialHeader}
-                    {leaderAbilities}
                 </div>
+
 
                 <Modal className="server-modal" isOpen={this.props.contentModal} ariaHideApp={false} 
                 style={{overlay:{ backgroundColor: 'rgba(0,0,0,0)'} }}>

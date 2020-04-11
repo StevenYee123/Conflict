@@ -14,19 +14,27 @@ class ServerIndexItem extends React.Component{
         const {server} = this.props;
         const initial = server.name.slice(0, 1);
         const path = this.props.location.pathname;
-        const sectioned = path.split("/");
-        const activeServerId = parseInt(sectioned.slice(sectioned.length - 1));
+        const getNum = path.split("#")[0].split("/");
+        let activeServerId;
+
+        if(getNum.length === 3){
+            activeServerId = parseInt(getNum[getNum.length - 1]);
+        } else if (getNum.length > 3){
+            activeServerId = parseInt(getNum[getNum.length - 2]);
+        }
+
         let isActive = "";
 
-        if (activeServerId === server.id) isActive = "active-server";
+        if (activeServerId === server.id) {
+            isActive = "active-server";
+        }
 
         return(
             <li id={isActive}>
-                <NavLink
-                    activeClassName={`selected-server`}
-                    to={`/channels/${server.id}`}>
-                    <strong>{initial}</strong>
-                </NavLink>
+                <strong onClick={() => (
+                    this.props.fetchChannels(this.props.server.id)
+                        .then(this.props.history.push(`/channels/${this.props.server.id}`))
+                )} >{initial}</strong>
             </li>
         )
     }
