@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import EditChannelForm from "./edit_channel_form";
+import DeleteChannelForm from "./delete_channel_form";
 
 class ChannelIndex extends React.Component{
     constructor(props){
@@ -10,17 +11,16 @@ class ChannelIndex extends React.Component{
 
 
     render(){
-        const {channels, currentUser, currentServer, 
-            currentChannel, updateChannel, path} = this.props;
-        const splitPath = path.split("/");
-        const currentChannelId = splitPath[splitPath.length - 1];
-        const channelVals = Object.values(this.props.channels);
-        const channelLinks = channelVals.map((channel) => {
+            const {channelIds, currentUser, currentServer, 
+                currentChannel, updateChannel, deleteChannel, path} = this.props;
+            const splitPath = path.split("/");
+            const currentChannelId = splitPath[splitPath.length - 1];
+            const channelVals = Object.values(this.props.channels);
+            const channelLinks = channelVals.map((channel) => {
             let isActive = "";
             if (channel.id === parseInt(currentChannelId)){
                 isActive = "active-channel"
             }
-
             return (
                 <div id="activate-channel" className={isActive} key={Math.random()}>
                     <button id="channel-option-icon" onClick={() => this.props.receiveModal('editChannelModal')}>
@@ -43,6 +43,8 @@ class ChannelIndex extends React.Component{
                         X
                     </button>
                     <EditChannelForm currentChannel={currentChannel} updateChannel={updateChannel}/>
+                    <DeleteChannelForm currentChannel={currentChannel} deleteChannel={deleteChannel} 
+                        path={path} channelIds={channelIds} currentServer={currentServer}/>
                 </Modal>
             </>
         )

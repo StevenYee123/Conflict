@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     deleteChannelModal: state.modal.deleteChannelModal,
     currentServer, 
     currentChannel,
+    channelIds: Object.keys(state.entities.channels)
   };
 };
 
