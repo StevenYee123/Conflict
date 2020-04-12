@@ -26,7 +26,7 @@ class JoinServerForm extends React.Component{
         return (
           <div className="modal-half-container" onSubmit={this.handleSubmit}>
             <h1>Assimilation!</h1>
-            <i className="fas fa-american-sign-language-interpreting" id="join-server-logo"></i>
+            <i className="far fa-handshake" id="join-server-logo"></i>
             <h1>Join a Server!</h1>
             <form onSubmit={this.handleSubmit}>
               <input type="text" onChange={this.handleChange("invite_link")} id="server-field"

@@ -24,10 +24,13 @@ class DeleteChannelForm extends React.Component{
     }
 
     render(){
+        const {currentChannel} = this.props;
         return(
-            <div>
-                <h1>Delete a Channel!</h1>
-                <button onClick={this.handleClick}>Delete</button>
+            <div className="channel-options-subsection channel-delete-section">
+                <h1>Delete Channel?</h1>
+                <i className="far fa-angry" id="delete-channel-icon"></i>
+                <strong>If you TRULY hate "{currentChannel.name}"...</strong>
+                <button onClick={this.handleClick} className="delete-channel-button">Delete It</button>
             </div>
         )
     }

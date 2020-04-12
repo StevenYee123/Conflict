@@ -37,14 +37,16 @@ class ChannelIndex extends React.Component{
         return(
             <>
                 {channelLinks}
-                <Modal className="channel-modal" isOpen={this.props.editChannelModal} ariaHideApp={false}
+                <Modal className="channel-options-modal" isOpen={this.props.editChannelModal} ariaHideApp={false}
                     style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
-                    <button onClick={() => this.props.removeModal('editChannelModal')} className="channel-close-button">
-                        X
-                    </button>
-                    <EditChannelForm currentChannel={currentChannel} updateChannel={updateChannel}/>
-                    <DeleteChannelForm currentChannel={currentChannel} deleteChannel={deleteChannel} 
-                        path={path} channelIds={channelIds} currentServer={currentServer}/>
+                        <button onClick={() => this.props.removeModal('editChannelModal')} className="channel-close-button">
+                            X
+                        </button>
+                        <div className="channel-options-container">
+                            <EditChannelForm currentChannel={currentChannel} updateChannel={updateChannel} />
+                            <DeleteChannelForm currentChannel={currentChannel} deleteChannel={deleteChannel}
+                                path={path} channelIds={channelIds} currentServer={currentServer} />
+                        </div>
                 </Modal>
             </>
         )

@@ -1,11 +1,10 @@
 import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import Modal from "react-modal";
-import ChannelIndex from "../channel/channel_index";
 import ChannelIndexContainer from "../channel/channel_index_container";
 import AddChannelForm from "../channel/add_channel_form";
 import InviteServerForm from "../server/invite_server_form"
-import ChannelShow from "../channel/channel_show";
+import EditServerForm from "../server/edit_server_form";
 
 class Content extends React.Component{
     constructor(props){
@@ -16,21 +15,17 @@ class Content extends React.Component{
         }
 
         this.closeModal = this.closeModal.bind(this);
-        this.stopEvent = this.stopEvent.bind(this);
         this.getAbilities = this.getAbilities.bind(this);
         this.showOptions = this.showOptions.bind(this);
+        this.editDetails = this.editDetails.bind(this);
+        this.deleteDetails = this.deleteDetails.bind(this);
     }
-
-
+    
     closeModal(form){
       return e => {
         e.stopPropagation();
         this.props.removeModal(form);
       }
-    }
-
-    stopEvent(e){
-      e.stopPropagation();
     }
 
     componentDidMount() {
@@ -39,10 +34,6 @@ class Content extends React.Component{
         if(serverId){
             this.props.fetchChannels(serverId);
         }
-    }
-    
-    stopEvent(e){
-        e.stopPropagation();
     }
 
     getHeader(userInfo, logout){
@@ -71,16 +62,34 @@ class Content extends React.Component{
     }
 
     inviteDetails(){
-        const {currentServer} = this.props;
         return (
                 <button className="channel-options-button" onClick={() => 
                     this.props.receiveModal('inviteModal')}> 
-                    Invite Some Homies!
+                    Invite some Homies!
                     <i className="fas fa-user-friends" id="friends-icon-button"></i>
                 </button>
         )
     }
 
+    editDetails(){
+        return(
+                <button className="channel-options-button" onClick={() => 
+                    this.props.receiveModal('editServerModal')}>
+                    Edit your Server!
+                    <i className="fas fa-edit" id="edit-icon-button"></i>
+                </button>
+        )
+    }
+
+    deleteDetails(){
+        return(
+                <button className="channel-options-button" onClick={() => 
+                    this.props.receiveModal('deleteServerModal')}>
+                <strong>Delete your Server?</strong> 
+                <i className="fas fa-trash-alt" id="delete-icon-button"></i>
+                </button>
+        )
+    }
     showOptions(){
         if (this.state.hideOptions === "show"){
             this.setState({hideOptions: ""});
@@ -90,7 +99,8 @@ class Content extends React.Component{
     }
 
     render(){
-        const {currentUser, logout, currentServer, channels, fetchChannels, createChannel} = this.props;
+        const {currentUser, logout, currentServer,
+             channels, fetchChannels, createChannel, deleteServer, updateServer} = this.props;
         const initialHeader = this.getHeader(currentUser, logout);
         return(
             <div className="second-nav">
@@ -103,13 +113,12 @@ class Content extends React.Component{
                         <ul onClick={this.showOptions}>
                             <li>{this.getAbilities()}</li>
                             <li>{this.inviteDetails()}</li>
-                            <li>la</li>
+                            <li>{this.editDetails()}</li>
+                            <li>{this.deleteDetails()}</li>
                         </ul>
                     </div>
                 </div>
                 <div className="channels-container">
-                    {/* <ChannelIndex channels={channels} currentServer={currentServer} 
-                    currentUser={currentUser} fetchChannels={fetchChannels} path={this.props.location.pathname}/> */}
                     <ChannelIndexContainer path={this.props.location.pathname} currentServer={currentServer} channels={channels}/> 
                 </div>
                 <div className="logout-section">
@@ -134,6 +143,21 @@ class Content extends React.Component{
                         </button>
                         <InviteServerForm currentServer={currentServer} />
                 </Modal>
+
+                <Modal className="channel-modal" isOpen={this.props.editServerModal} ariaHideApp={false}
+                    style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
+                    <div>
+                        <button onClick={this.closeModal('editServerModal')}>X</button>
+                    </div>
+                    <EditServerForm currentServer={currentServer} updateServer={updateServer}/>
+                </Modal>
+
+                <Modal className="channel-modal" isOpen={this.props.deleteServerModal} ariaHideApp={false}
+                    style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
+                    <div>
+                        <button onClick={this.closeModal('deleteServerModal')}>X</button>
+                    </div>
+                </Modal>                
             </div>
         )
     }

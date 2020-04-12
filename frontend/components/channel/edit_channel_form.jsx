@@ -23,12 +23,14 @@ class EditChannelForm extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="channel-options-subsection" id="edit-channel-container">
                 <h1>Edit a channel!</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="edit-channel-form">
+                    <i className="fas fa-marker" id="edit-channel-icon"></i>
                     <h3>Enter your New Channel Name</h3>
-                    <input type="text" onChange={this.handleChange('name')}/>
-                    <input type="submit" value="Edit!"/>
+                    <input type="text" onChange={this.handleChange('name')} 
+                        className="edit-channel-field" placeholder="Enter new Name!"/>
+                    <input type="submit" value="Edit!" className="edit-channel-button"/>
                 </form>
             </div>
         )

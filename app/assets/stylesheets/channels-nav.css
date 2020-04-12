@@ -39,7 +39,7 @@
     position: absolute;
     background-color: gray;
     left: 300px;
-    font-size: 16px;
+    font-size: 14px;
     display: none;
     color: honeydew;
     -webkit-transition: .3s ease-in-out;
@@ -101,6 +101,14 @@
     padding-left: 72px;
 }
 
+#edit-icon-button{
+    padding-left: 102px;
+}
+
+#delete-icon-button{
+    padding-left: 82px;
+}
+
 .channel-header strong{
     font-size: 32px;
     padding-top: 15px;
@@ -113,7 +121,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.channel-options-button strong{
+    color: red;
+    font-size: 16px;
+}
+
 .options-dropdown-button{
+    cursor: pointer;
     background-color: #303133;
 }
 
