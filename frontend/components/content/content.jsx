@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import Modal from "react-modal";
 import ChannelIndex from "../channel/channel_index";
+import ChannelIndexContainer from "../channel/channel_index_container";
 import AddChannelForm from "../channel/add_channel_form";
 import InviteServerForm from "../server/invite_server_form"
 import ChannelShow from "../channel/channel_show";
@@ -107,8 +108,9 @@ class Content extends React.Component{
                     </div>
                 </div>
                 <div className="channels-container">
-                    <ChannelIndex channels={channels} currentServer={currentServer} 
-                    currentUser={currentUser} fetchChannels={fetchChannels} path={this.props.location.pathname}/>
+                    {/* <ChannelIndex channels={channels} currentServer={currentServer} 
+                    currentUser={currentUser} fetchChannels={fetchChannels} path={this.props.location.pathname}/> */}
+                    <ChannelIndexContainer path={this.props.location.pathname} currentServer={currentServer} channels={channels}/> 
                 </div>
                 <div className="logout-section">
                     {initialHeader}
