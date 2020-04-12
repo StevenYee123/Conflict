@@ -1,0 +1,56 @@
+.invite-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 404px;
+    background-color: beige;
+    border-radius: 0 0 8px 8px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+}
+
+.invite-container h1{
+    font-size: 36px;
+    color: hotpink;
+}
+
+.invite-container h3{
+    font-family: Arial, Helvetica, sans-serif;
+    color: hotpink;
+    font-size: 20px;
+}
+
+#invite-crow-logo{
+    font-size: 200px;
+    color: cornflowerblue;
+}
+
+#invite-link{
+    background: transparent;
+    width: 200px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-bottom: 2px solid black;
+    color: hotpink;
+}
+
+.invite-close-button{
+    padding: 5px;
+    margin-left: 510px;
+    background: transparent;
+    color: red;
+    -webkit-transition: .3s ease-in-out;
+}
+
+.invite-close-button:hover{
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+}
+
+.invite-close-button:active{
+    background-color: white;
+    color: red;
+}

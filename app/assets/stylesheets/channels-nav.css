@@ -30,6 +30,11 @@
     display: block;
 }
 
+#activate-channel:active{
+    background-color: white;
+    color: gray;
+}
+
 @-webkit-keyframes swing-in-top-fwd {
   0% {
     -webkit-transform: rotateX(-100deg);
@@ -78,8 +83,11 @@
 }
 
 #message-icon-button{
-    color: white;
-    padding-left: 100px;
+    padding-left: 92px;
+}
+
+#friends-icon-button{
+    padding-left: 72px;
 }
 
 .channel-header strong{
@@ -91,6 +99,7 @@
 
 .channel-options-button{
     background-color: #303133;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .options-dropdown-button{
@@ -130,6 +139,12 @@
     border: 1px solid black;
 }
 
+.active-channel{
+    background-color: gray;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
 .logout-section{
     background-color: #1f2024;
     color: white;
@@ -143,11 +158,12 @@
 
 .logout-section button{
     border-radius: 10px;
+    padding: 5px;
     background-color: #1f2024;
     color: red;
     border: 2px solid red;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     font-size: 10px;
     -webkit-transition: all .4s ease-in;
 }
@@ -161,4 +177,17 @@
 #pound-sign{
     opacity: .6;
     padding-right: 10px;
+}
+
+.user-initial{
+    background-color: teal;
+    border: 2px solid white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    content: "";
+}
+
+.user-initial:hover{
+    cursor: default;
 }

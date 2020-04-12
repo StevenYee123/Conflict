@@ -34,7 +34,7 @@ class Splash extends React.Component{
                   alt="discord_logo"
                   className="splash-logo"
                 />
-                <strong>Conflict</strong>
+                <img src={window.conflictlogoURL} alt="conflict-logo" id="splash-text"/>
               </div>
               <div className="right">{initialHeader()}</div>
             </header>

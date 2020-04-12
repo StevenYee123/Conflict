@@ -58,6 +58,10 @@
     width: 10%;
 }
 
+#splash-text{
+    width: 140px;
+}
+
 .splash-mid{
     display: flex;
     justify-content: center;

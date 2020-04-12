@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         currentServer,
         contentModal: state.modal.contentModal,
+        inviteModal: state.modal.inviteModal,
         channels
     }
 }
