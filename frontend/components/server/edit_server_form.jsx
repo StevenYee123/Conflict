@@ -5,12 +5,22 @@ class EditServerForm extends React.Component{
         super(props);
 
         this.state = {
+            id: this.props.currentServer.id,
             name: ''
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        // this.keyPressed = this.keyPressed.bind(this);
     }
+
+    // keyPressed(e){
+    //     if (e.key === "Enter"){
+    //         debugger;
+    //     }
+    // }
+
+    /* onKeyPress={this.keyPressed} */
 
     handleChange(field){
         return e => {
@@ -19,14 +29,15 @@ class EditServerForm extends React.Component{
     }
 
     handleClick(){
-        e.preventDefault();
+        this.props.updateServer(this.state);
     }
-
+    
     render(){
         return(
             <div>
                 <h1>Hello from Edit!</h1>
-                <input type="text" onClick={this.handleChange('name')} placeholder="Enter new Server Name!"/>
+                <input type="text" onChange={this.handleChange('name')} 
+                placeholder="Enter new Server Name!"/>
                 <button onClick={this.handleClick}>Edit</button>
             </div>
         )

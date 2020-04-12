@@ -5,6 +5,7 @@ import ChannelIndexContainer from "../channel/channel_index_container";
 import AddChannelForm from "../channel/add_channel_form";
 import InviteServerForm from "../server/invite_server_form"
 import EditServerForm from "../server/edit_server_form";
+import DeleteServerForm from "../server/delete_server_form";
 
 class Content extends React.Component{
     constructor(props){
@@ -83,8 +84,8 @@ class Content extends React.Component{
 
     deleteDetails(){
         return(
-                <button className="channel-options-button" onClick={() => 
-                    this.props.receiveModal('deleteServerModal')}>
+                <button className="channel-options-button" id="delete-server-option"
+                    onClick={() => this.props.receiveModal('deleteServerModal')}>
                 <strong>Delete your Server?</strong> 
                 <i className="fas fa-trash-alt" id="delete-icon-button"></i>
                 </button>
@@ -99,15 +100,22 @@ class Content extends React.Component{
     }
 
     render(){
-        const {currentUser, logout, currentServer,
-             channels, fetchChannels, createChannel, deleteServer, updateServer} = this.props;
+        const { currentUser, logout, currentServer,
+                channels, fetchChannels, createChannel,
+                deleteServer, updateServer, servers } = this.props;
         const initialHeader = this.getHeader(currentUser, logout);
-        return(
-            <div className="second-nav">
-                <div className="channel-header">
-                    <strong>{currentServer.name}</strong>
+
+        let leaderOptions; 
+        if (currentUser.id === currentServer.leader_id){
+            leaderOptions = 
+                <>
                     <button className="options-dropdown-button" onClick={this.showOptions}>
                         <i className="fas fa-chevron-circle-down" id="dropdown-icon"></i>
+                        <div id="leader-options-preview">
+                            <span>
+                                Leader Options! :o
+                            </span>
+                        </div>
                     </button>
                     <div className={`channel-header-options ${this.state.hideOptions}`} id={this.state.hideOptions}>
                         <ul onClick={this.showOptions}>
@@ -117,6 +125,14 @@ class Content extends React.Component{
                             <li>{this.deleteDetails()}</li>
                         </ul>
                     </div>
+                </>
+        }
+        
+        return(
+            <div className="second-nav">
+                <div className="channel-header">
+                    <strong>{currentServer.name}</strong>
+                    {leaderOptions}
                 </div>
                 <div className="channels-container">
                     <ChannelIndexContainer path={this.props.location.pathname} currentServer={currentServer} channels={channels}/> 
@@ -157,6 +173,8 @@ class Content extends React.Component{
                     <div>
                         <button onClick={this.closeModal('deleteServerModal')}>X</button>
                     </div>
+                    <DeleteServerForm deleteServer={deleteServer} currentServer={currentServer}
+                        fetchChannels={fetchChannels} servers={servers}/>
                 </Modal>                
             </div>
         )

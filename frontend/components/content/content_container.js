@@ -2,7 +2,7 @@ import {connect} from "react-redux";
 import {fetchServer, createServer, joinServer, deleteServer, updateServer} from "../../actions/server_actions";
 import {fetchChannels, createChannel} from "../../actions/channel_actions";
 import {modalReceiver, modalRemover} from "../../actions/modal_actions";
-import { selectServer, grabChannels } from "../../reducers/selectors";
+import { selectServer, grabChannels, grabServers } from "../../reducers/selectors";
 import {logout} from "../../actions/session_actions";
 import Content from "./content";
 
@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     const placeHolderServer = {name: "Loading, please wait"};
     let currentServer = selectServer(state, ownProps.match.params.serverId) || placeHolderServer;
     let channels = grabChannels(state);
+    let servers = grabServers(state);
     return {
         currentUser: state.entities.users[state.session.id],
         currentServer,
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
         inviteModal: state.modal.inviteModal,
         editServerModal: state.modal.editServerModal,
         deleteServerModal: state.modal.deleteServerModal,
-        channels
+        channels,
+        servers
     }
 }
 

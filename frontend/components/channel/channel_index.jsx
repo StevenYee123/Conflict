@@ -21,11 +21,17 @@ class ChannelIndex extends React.Component{
             if (channel.id === parseInt(currentChannelId)){
                 isActive = "active-channel"
             }
-            return (
-                <div id="activate-channel" className={isActive} key={Math.random()}>
+
+            let leaderOptions;
+            if (currentUser.id === currentServer.leader_id){
+                leaderOptions = 
                     <button id="channel-option-icon" onClick={() => this.props.receiveModal('editChannelModal')}>
                         <i className="fas fa-cog"></i>
                     </button>
+            }
+            return (
+                <div id="activate-channel" className={isActive} key={Math.random()}>
+                    {leaderOptions}
                     <Link to={`/channels/${currentServer.id}/${channel.id}`} >
                         <strong id="pound-sign">#</strong>  
                         {channel.name}

@@ -31,7 +31,7 @@ class Api::ServersController < ApplicationController
 
     def update
         @server = Server.find(params[:id])
-        if @server && @server.leader.id == current_user.id && @server.update(server_params)
+        if @server.update(name: params[:server][:name])
             render :show
         else
             render json: @server.errors.full_messages, status: 422

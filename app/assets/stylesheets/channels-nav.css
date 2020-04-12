@@ -126,9 +126,27 @@
     font-size: 16px;
 }
 
+#leader-options-preview{
+    position: absolute;
+    top: 20%;
+    left: 102%;
+    width: 157px;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    border-radius: 10px;
+    display: none;
+    z-index: 10;
+}
+
 .options-dropdown-button{
     cursor: pointer;
     background-color: #303133;
+}
+
+.options-dropdown-button:hover > #leader-options-preview{
+    display: block;
 }
 
 #dropdown-icon{
@@ -228,4 +246,17 @@
 
 .user-initial:hover{
     cursor: default;
+}
+
+#delete-server-option > strong {
+    -webkit-transition: .3s ease-in-out;
+}
+
+#delete-server-option:hover{
+    background-color: red;
+    color: white;
+}
+
+#delete-server-option:hover > strong{
+    color: white;
 }
