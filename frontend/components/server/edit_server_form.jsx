@@ -34,11 +34,12 @@ class EditServerForm extends React.Component{
     
     render(){
         return(
-            <div>
-                <h1>Hello from Edit!</h1>
-                <input type="text" onChange={this.handleChange('name')} 
-                placeholder="Enter new Server Name!"/>
-                <button onClick={this.handleClick}>Edit</button>
+            <div className="edit-server-content">
+                <h1>Edit this Server?</h1>
+                <i className="fas fa-pen-fancy" id="edit-server-icon"></i>
+                <input type="text" className="edit-server-field" 
+                    onChange={this.handleChange('name')} placeholder="Enter new Server Name!" maxLength="10"/>
+                <button onClick={this.handleClick} className="edit-server-button">Edit</button>
             </div>
         )
     }

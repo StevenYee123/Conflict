@@ -162,19 +162,19 @@ class Content extends React.Component{
 
                 <Modal className="channel-modal" isOpen={this.props.editServerModal} ariaHideApp={false}
                     style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
-                    <div>
-                        <button onClick={this.closeModal('editServerModal')}>X</button>
+                    <div className="edit-server-container">
+                        <button onClick={this.closeModal('editServerModal')} className="edit-server-close-button">X</button>
+                        <EditServerForm currentServer={currentServer} updateServer={updateServer}/>
                     </div>
-                    <EditServerForm currentServer={currentServer} updateServer={updateServer}/>
                 </Modal>
 
                 <Modal className="channel-modal" isOpen={this.props.deleteServerModal} ariaHideApp={false}
                     style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
-                    <div>
+                    <div className="delete-server-container">
                         <button onClick={this.closeModal('deleteServerModal')}>X</button>
+                        <DeleteServerForm deleteServer={deleteServer} currentServer={currentServer}
+                            fetchChannels={fetchChannels} servers={servers} />
                     </div>
-                    <DeleteServerForm deleteServer={deleteServer} currentServer={currentServer}
-                        fetchChannels={fetchChannels} servers={servers}/>
                 </Modal>                
             </div>
         )
