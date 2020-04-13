@@ -41,7 +41,6 @@ class MessageIndex extends React.Component{
                 channel_id: channelId
             })
         }
-        // debugger;
     }
 
     render(){
