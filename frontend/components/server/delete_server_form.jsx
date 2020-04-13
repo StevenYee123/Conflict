@@ -24,10 +24,13 @@ class DeleteServerForm extends React.Component{
     }
 
     render(){
+        const {currentServer} = this.props;
         return(
-            <div>
+            <div className="delete-server-content">
                 <h1>Delete Server</h1>
-                <button onClick={this.handleClick}>Delete</button>
+                <i className="fas fa-trash-alt" id="delete-server-icon"></i>
+                <strong>Delete {currentServer.name}? This is irreversable! :(</strong>
+                <button onClick={this.handleClick} className="delete-server-button">Delete</button>
             </div>
         )
     }

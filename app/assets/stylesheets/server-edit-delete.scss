@@ -73,3 +73,53 @@
     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.6) inset;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.6) inset;
 }
+
+.delete-server-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: red;
+    height: 96%;
+    font-size: 20px;
+}
+
+.delete-server-close-button{
+    font-size: 20px;
+    margin-left: 520px;
+    background: transparent;
+    color: red;
+    font-family: Arial;
+    cursor: pointer;
+    -webkit-transition: .3s ease-in-out;
+}
+
+.delete-server-close-button:hover{
+    background-color: red;
+    color: #273746;
+    border-radius: 5px;
+}
+
+.delete-server-content h1{
+    font-size: 36px;
+    text-decoration: underline;
+}
+
+#delete-server-icon{
+    font-size: 150px;
+}
+
+.delete-server-button{
+    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: red;
+    color: #273746;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-transition: .3s ease-in-out;
+}
+
+.delete-server-button:hover{
+    color: red;
+    background-color: #273746;
+}

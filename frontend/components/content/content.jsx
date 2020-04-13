@@ -171,7 +171,9 @@ class Content extends React.Component{
                 <Modal className="channel-modal" isOpen={this.props.deleteServerModal} ariaHideApp={false}
                     style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
                     <div className="delete-server-container">
-                        <button onClick={this.closeModal('deleteServerModal')}>X</button>
+                        <button onClick={this.closeModal('deleteServerModal')} className="delete-server-close-button">
+                            X
+                        </button>
                         <DeleteServerForm deleteServer={deleteServer} currentServer={currentServer}
                             fetchChannels={fetchChannels} servers={servers} />
                     </div>
