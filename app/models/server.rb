@@ -8,6 +8,7 @@
 #  private_status :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  invite_link    :string
 #
 class Server < ApplicationRecord 
     validates :name, presence: true, length: {minimum: 3}

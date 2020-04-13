@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import ChannelShow from "./channel_show";
 import React from "react";
 import { fetchChannel } from "../../actions/channel_actions";
+import { fetchMessages } from "../../actions/message_actions";
 import { modalReceiver, modalRemover } from "../../actions/modal_actions";
 import { selectServer, selectChannel, grabChannels } from "../../reducers/selectors";
 
@@ -22,8 +23,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return{
-        fetchChannel: (channelId) => dispatch(fetchChannel(channelId))
+        fetchChannel: (channelId) => dispatch(fetchChannel(channelId)),
+        fetchMessages: (channelId) => dispatch(fetchMessages(channelId))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelShow)
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelShow);

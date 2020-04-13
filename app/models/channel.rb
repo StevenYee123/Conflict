@@ -18,4 +18,9 @@ class Channel < ApplicationRecord
     has_one :leader,
     through: :server,
     source: :leader
+
+    has_many :messages,
+    foreign_key: :channel_id,
+    class_name: :Message,
+    dependent: :destroy
 end

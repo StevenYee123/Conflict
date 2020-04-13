@@ -36,6 +36,10 @@ class User < ApplicationRecord
     has_many :channels,
     through: :servers,
     source: :channels
+
+    has_many :messages,
+    class_name: :Message,
+    foreign_key: :author_id
     
     
     def self.find_by_credentials(email, password)

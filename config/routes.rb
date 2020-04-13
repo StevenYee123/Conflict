@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     post 'servers/join', to: 'servers#join'
     delete "servers", to: "servers#leave"
     resources :channels, only: [:index, :show, :create, :update, :destroy]
+    resources :messages, only: [:create, :index, :destroy]
   end
 end

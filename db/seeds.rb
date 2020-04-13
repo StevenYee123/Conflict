@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 ServerMembership.delete_all
+Message.delete_all
 Channel.delete_all
 Server.delete_all
 User.delete_all
@@ -28,3 +29,8 @@ c3 = Channel.create!({name: "Other Server", server_id: s3.id})
 c4 = Channel.create!({name: "Testy Boi", server_id: s3.id})
 c5 = Channel.create!({name: "Running out of names", server_id: s1.id})
 c6 = Channel.create!({name: "Keeping it even", server_id: s2.id})
+
+m1 = Message.create({body: "Some sample text to take up some space fam!", channel_id: c1.id, author_id: u1.id})
+m2 = Message.create({body: "Just trying to occupy some space ya feel me!?", channel_id: c1.id, author_id: u1.id})
+m3 = Message.create({body: "Keeping the train going while I can think of things to write", channel_id: c1.id, author_id: u1.id})
+m4 = Message.create({body: "ScubaSteve in the house with some extra stuff!", channel_id: c1.id, author_id: u2.id})

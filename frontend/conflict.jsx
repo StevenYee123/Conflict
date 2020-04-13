@@ -20,11 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
     //TESTING
-    window.signup = API_Sessions.signup;
-    window.login = API_Sessions.login;
-    window.logout = API_Sessions.logout;
     window.getState = store.getState;
-    window.dispatch = store.dispatch;
     //TESTING
 
   const root = document.getElementById("root");
