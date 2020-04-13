@@ -11,6 +11,7 @@ class ChannelIndex extends React.Component{
 
 
     render(){
+            const that = this;
             const {channelIds, currentUser, currentServer, 
                 currentChannel, updateChannel, deleteChannel, path} = this.props;
             const splitPath = path.split("/");
@@ -32,7 +33,7 @@ class ChannelIndex extends React.Component{
 
             return (
                 <div id="activate-channel" className={isActive} key={Math.random()}>
-                    <Link to={`/channels/${currentServer.id}/${channel.id}`} >
+                    <Link to={`/channels/${currentServer.id}/${channel.id}`}>
                         <strong id="pound-sign">#</strong>  
                         {channel.name}
                     </Link>

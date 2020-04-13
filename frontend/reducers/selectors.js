@@ -13,3 +13,7 @@ export const grabChannels = (state) => {
 export const selectChannel = (state, channelId) => {
   return state.entities.channels[channelId]
 }
+
+export const grabMessages = (state) => {
+  return state.entities.messages
+}

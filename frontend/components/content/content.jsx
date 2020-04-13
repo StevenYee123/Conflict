@@ -86,7 +86,7 @@ class Content extends React.Component{
         return(
                 <button className="channel-options-button" id="delete-server-option"
                     onClick={() => this.props.receiveModal('deleteServerModal')}>
-                <strong>Delete your Server?</strong> 
+                <span>Delete your Server?</span> 
                 <i className="fas fa-trash-alt" id="delete-icon-button"></i>
                 </button>
         )
@@ -135,6 +135,7 @@ class Content extends React.Component{
                     {leaderOptions}
                 </div>
                 <div className="channels-container">
+                    <strong>Text-Channels</strong>
                     <ChannelIndexContainer path={this.props.location.pathname} currentServer={currentServer} channels={channels}/> 
                 </div>
                 <div className="logout-section">

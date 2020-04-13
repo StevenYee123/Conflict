@@ -1,22 +1,30 @@
 .second-nav{
-    width: 250px;
+    width: 400px;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.channel-header{
+.channel-title-header{
     height: 50px;
-    background-color: #303133;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.18), 0 6px 6px rgba(0,0,0,0.18);
-    z-index: 1;
+    width: 100%;
+}
+
+.channel-header{
+    height: 70px;
+    background-color: #2a2b2c;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 6px 6px rgba(0,0,0,0.3);
     display: flex;
     justify-content: space-between;
     position: relative;
+    -webkit-user-select: none;       
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
 }
 
 .channel-header-options{
-    width: 250px;
+    width: 100%;
     background-color: #1f2022;
     border: 1px solid black;
     position: absolute;
@@ -24,6 +32,7 @@
     -webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     display: none;
+    z-index: 2;
 }
 
 #show{
@@ -44,7 +53,7 @@
     display: flex;
     width: 100%;
     color: white;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 10px 5px;
 }
 
 
@@ -112,8 +121,8 @@
 }
 
 .channel-header strong{
-    font-size: 32px;
-    padding-top: 15px;
+    font-size: 20px;
+    padding-top: 20px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -123,7 +132,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.channel-options-button strong{
+.channel-options-button span{
     color: red;
     font-size: 16px;
 }
@@ -145,7 +154,7 @@
 
 .options-dropdown-button{
     cursor: pointer;
-    background-color: #303133;
+    background-color: #2a2b2c;
 }
 
 .options-dropdown-button:hover > #leader-options-preview{
@@ -167,8 +176,16 @@
 .channels-container{
     display: flex;
     flex-direction: column;
-    background-color: #303133;
+    background-color: #2a2b2c;
     height: 100%;
+}
+
+.channels-container strong{
+    color:white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    height: 20px;
+    cursor: default;
 }
 
 .channels-container div {
@@ -200,6 +217,7 @@
     color: white;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 25px;
     -webkit-transition: all .4s ease-in;
     -webkit-animation: fadeIn ease .3s;
 }
@@ -259,7 +277,7 @@
     cursor: default;
 }
 
-#delete-server-option > strong {
+#delete-server-option > span {
     -webkit-transition: .3s ease-in-out;
 }
 
@@ -268,6 +286,6 @@
     color: white;
 }
 
-#delete-server-option:hover > strong{
+#delete-server-option:hover > span{
     color: white;
 }

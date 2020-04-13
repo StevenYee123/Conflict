@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 import { Link } from "react-router-dom";
 import {fetchServers, createServer, joinServer, removeServer, updateServer} from "../../actions/server_actions";
 import {fetchChannels} from "../../actions/channel_actions";
+import {fetchMessages} from "../../actions/message_actions";
 import {logout} from "../../actions/session_actions";
 import {modalReceiver, modalRemover} from "../../actions/modal_actions";
 import ServerIndex from "./server_index";
@@ -23,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
     createServer: (server) => dispatch(createServer(server)),
     joinServer: (inviteLink) => dispatch(joinServer(inviteLink)),
     fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
+    fetchMessages: (channelId) => dispatch(fetchMessages(channelId)),
     receiveModal: (modalType) => dispatch(modalReceiver(modalType)),
     removeModal: (modalType) => dispatch(modalRemover(modalType))
 });

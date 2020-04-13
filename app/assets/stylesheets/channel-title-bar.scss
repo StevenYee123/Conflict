@@ -1,0 +1,26 @@
+.channel-title-bar{
+    height: 59px;
+    background-color: #303133;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 6px 6px rgba(0,0,0,0.3);
+    font-size: 36px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    -webkit-user-select: none;        
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+}
+
+.channel-title-bar h1 {
+    color: white;
+    padding: 10px;
+    opacity: .5;
+}
+
+.channel-title-bar strong{
+    opacity: .2;
+    padding: 5px;
+}

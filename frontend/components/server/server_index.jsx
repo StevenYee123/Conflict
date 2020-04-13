@@ -34,13 +34,14 @@ class ServerIndex extends React.Component{
 
 
     render(){
-        const {currentUser, logout, createServer, joinServer, fetchChannels, channels} = this.props;
+        const {currentUser, logout, createServer, 
+          joinServer, fetchChannels, channels, fetchMessages} = this.props;
         let serversList, errorsList;
         if (this.props.servers){
             serversList = this.props.servers.map((server) => {
               return (
                 <div className="server-index-item" key={Math.random()} >
-                  <ServerIndexItem server={server}
+                  <ServerIndexItem server={server} fetchMessages={fetchMessages}
                   fetchChannels={fetchChannels} channels={channels} />
                   <div className="server-name-preview">
                     <strong>{server.name}</strong>

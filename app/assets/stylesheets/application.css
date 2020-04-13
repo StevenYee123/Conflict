@@ -28,3 +28,22 @@ main {
 h1{
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.last-container{
+    width: 100%;
+}
+
+#root{
+    overflow: hidden;
+}
+
+hr {
+    border: 0;
+    clear: both;
+    display: block;
+    width: 96%;
+    background-color: gray;
+    opacity: .2;
+    height: 2px;
+    margin-top: 10px;
+}

@@ -29,7 +29,7 @@ class EditChannelForm extends React.Component{
                     <i className="fas fa-marker" id="edit-channel-icon"></i>
                     <h3>Enter your New Channel Name</h3>
                     <input type="text" onChange={this.handleChange('name')} 
-                        className="edit-channel-field" placeholder="Enter new Name!"/>
+                        className="edit-channel-field" placeholder="Enter new Name!" maxLength="50"/>
                     <input type="submit" value="Edit!" className="edit-channel-button"/>
                 </form>
             </div>

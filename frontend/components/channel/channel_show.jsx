@@ -6,20 +6,11 @@ class ChannelShow extends React.Component{
         super(props);
     }
 
-    componentDidUpdate(){
-        const {currentChannel} = this.props;
-        if(currentChannel.id){
-            this.props.fetchMessages(currentChannel.id);
-        }
-    }
-
     render(){
+        const { messages, currentChannel } = this.props;
         return(
-            <div className="last-container">
-                <div className="messages-header">
-                    <h1>{this.props.currentChannel.name}</h1>
-                </div>
-                <MessageIndexContainer />
+            <div className="channel-title-bar">
+                <h1><strong>#</strong>{this.props.currentChannel.name}</h1>
             </div>
         )
     }

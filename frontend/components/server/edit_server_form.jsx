@@ -11,16 +11,7 @@ class EditServerForm extends React.Component{
 
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        // this.keyPressed = this.keyPressed.bind(this);
     }
-
-    // keyPressed(e){
-    //     if (e.key === "Enter"){
-    //         debugger;
-    //     }
-    // }
-
-    /* onKeyPress={this.keyPressed} */
 
     handleChange(field){
         return e => {
@@ -38,7 +29,7 @@ class EditServerForm extends React.Component{
                 <h1>Edit this Server?</h1>
                 <i className="fas fa-pen-fancy" id="edit-server-icon"></i>
                 <input type="text" className="edit-server-field" 
-                    onChange={this.handleChange('name')} placeholder="Enter new Server Name!" maxLength="10"/>
+                    onChange={this.handleChange('name')} placeholder="Enter new Server Name!" maxLength="17"/>
                 <button onClick={this.handleClick} className="edit-server-button">Edit</button>
             </div>
         )
