@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
         created_at: "",
     };
 
-    let currentChannel = selectChannel(state, ownProps.match.params.channelId);
+    let currentChannel = selectChannel(state, ownProps.match.params.channelId) || placeHolderMessages;
     let messages = state.entities.messages;
     return {
         currentUser: state.entities.users[state.session.id],

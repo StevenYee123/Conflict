@@ -18,10 +18,8 @@ const App = () => (
       <ProtectedRoute path="/channels" component={ServerIndexContainer} />
       <ProtectedRoute exact path="/channels" component={HomepageContentContainer} />
       <ProtectedRoute path="/channels/:serverId" component={ContentContainer} />
-      <div className="last-container">
-        <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelShowContainer} />
-        <ProtectedRoute path="/channels/:serverId/:channelId" component={MessagesIndexContainer} />
-      </div>
+      {/* <ProtectedRoute exact path="/channels/:serverId/:channelId" component={ChannelShowContainer} /> */}
+      <ProtectedRoute exact path="/channels/:serverId/:channelId" component={MessagesIndexContainer} />
   </>
 );
 

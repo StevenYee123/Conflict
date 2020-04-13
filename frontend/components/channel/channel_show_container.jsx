@@ -12,13 +12,12 @@ const mapStateToProps = (state, ownProps) => {
     const placeHolderChannel = { name: "Loading, please wait" };
     let currentServer = selectServer(state, ownProps.match.params.serverId) || placeHolderServer;
     let currentChannel = selectChannel(state, ownProps.match.params.channelId) || placeHolderChannel;
-    let channels = grabChannels(state);
-
+    let messages = state.entities.messages;
     return {
         currentUser: state.entities.users[state.session.id],
         currentServer,
         currentChannel,
-        channels
+        messages
     }
 }
 
