@@ -9,7 +9,7 @@
     left: 0;
     margin: auto;
     animation: modal-grow .25s;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
@@ -56,7 +56,7 @@
 
 .server-modal-content div{
     border: 1px solid gray;
-    width: 45%;
+    width: 50%;
 }
 
 .modal-content-header h1{
@@ -70,6 +70,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
     border-radius: 10px;
 
 }
@@ -81,7 +82,7 @@
 
 #add-server-button{
   height: 49px;
-  width: 245px;
+  width: 268px;
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   border: 1px solid black;
@@ -100,7 +101,7 @@
 
 #join-server-button{
   height: 49px;
-  width: 245px;
+  width: 268px;
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-transition: all .2s ease-in;
@@ -115,12 +116,14 @@
 }
 
 #server-field{
-  background-color: #fff5d7;
+  background: transparent;
   color: gray;
-  margin-bottom: 25px;
   padding-left: 10px;
-  margin-left: 40px;
+  margin-bottom: 10px;
   border-bottom: 1px solid gray;
+  width: 90%;
+  font-size: 25px;
+  text-align: center;
 }
 
 #add-server-logo{
@@ -131,4 +134,9 @@
 #join-server-logo{
   font-size: 180px;
   color: rgb(45, 184, 45);
+}
+
+#point-icon{
+  font-size: 40px;
+  color: gray;
 }

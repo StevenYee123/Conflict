@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Modal from "react-modal";
 import EditChannelForm from "./edit_channel_form";
 import DeleteChannelForm from "./delete_channel_form";
@@ -16,29 +16,36 @@ class ChannelIndex extends React.Component{
             const splitPath = path.split("/");
             const currentChannelId = splitPath[splitPath.length - 1];
             const channelVals = Object.values(this.props.channels);
+            let leaderOptions;
             const channelLinks = channelVals.map((channel) => {
             let isActive = "";
             if (channel.id === parseInt(currentChannelId)){
                 isActive = "active-channel"
             }
 
-            let leaderOptions;
             if (currentUser.id === currentServer.leader_id){
                 leaderOptions = 
                     <button id="channel-option-icon" onClick={() => this.props.receiveModal('editChannelModal')}>
                         <i className="fas fa-cog"></i>
                     </button>
             }
+
             return (
                 <div id="activate-channel" className={isActive} key={Math.random()}>
-                    {leaderOptions}
                     <Link to={`/channels/${currentServer.id}/${channel.id}`} >
                         <strong id="pound-sign">#</strong>  
                         {channel.name}
                     </Link>
+                    {leaderOptions}
                 </div>
-            )
-        });
+                // <div id="activate-channel" className={isActive} key={Math.random()} onClick={() => 
+                //     this.props.history.push(`/channels/${currentServer.id}/${channel.id}`)}>
+                //     <strong id="pound-sign">#</strong>
+                //     {channel.name}
+                //     {leaderOptions}
+                // </div>
+                )
+            });
 
         return(
             <>
@@ -59,4 +66,4 @@ class ChannelIndex extends React.Component{
     }
 }
 
-export default ChannelIndex;
+export default withRouter(ChannelIndex);

@@ -17,7 +17,7 @@
     height: 100%;
 }
 
-.server-icons li {
+.server-icons li button{
     cursor: pointer;
     background-color: #3a3d42;
     border-radius: 50px;
@@ -30,7 +30,7 @@
     transition: all .4s ease-in;
 }
 
-.server-icons li:hover {
+.server-icons li button:hover {
     background-color: #7289DA;
     border-radius: 10px;
 }
@@ -59,8 +59,16 @@
 }
 
 #user-icon {
-    font-size: 18px;
-    padding: 0px;
+    background-color: #3a3d42;
+    padding: 13px 15px;
+    margin: 10px;
+    border-radius: 20px;
+    -webkit-transition: .3s ease-in-out;
+}
+
+#user-icon:hover{
+    background-color: #7289DA;
+    border-radius: 10px;
 }
 
 .channels-nav {
@@ -101,4 +109,8 @@
 .server-name-preview strong{
     position: relative;
     top: 5px;
+}
+
+.servers-modal-container{
+    height: 100%;
 }

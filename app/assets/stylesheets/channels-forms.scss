@@ -42,6 +42,9 @@
 }
 
 .add-channel-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     background-color: rgb(161, 218, 75);
     height: 400px;
@@ -60,13 +63,13 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    align-items: center;
     height: 364px;
     border-radius: 0 0 10px 10px;
 }
 
 #message-icon{
     font-size: 175px;
-    padding-left: 180px;
     color: white;
 }
 
@@ -79,19 +82,18 @@
 
 #channel-name-field{
     background-color: rgb(161, 218, 75);
-    width: 200px;
+    width: 300px;
     border-bottom: 2px solid black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: black;
-    margin-left: 170px;
+    text-align: center;
 }
 
 .add-channel-button{
     width: 200px;
     padding: 10px;
     border: 3px solid white;
-    margin-left: 170px;
     border-radius: 10px;
     font-size: 20px;
     background-color: rgb(161, 218, 75);

@@ -30,11 +30,11 @@ class ServerIndexItem extends React.Component{
         }
 
         return(
-            <li id={isActive}>
-                <strong onClick={() => (
+            <li >
+                <button id={isActive} onClick={() => (
                     this.props.fetchChannels(this.props.server.id)
                     .then((resp) => 
-                    this.props.history.push(`/channels/${this.props.server.id}/${Object.keys(resp.channels)[0]}`)))} >{initial}</strong>
+                    this.props.history.push(`/channels/${this.props.server.id}/${Object.keys(resp.channels)[0]}`)))} >{initial}</button>
             </li>
         )
     }

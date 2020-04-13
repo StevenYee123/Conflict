@@ -28,6 +28,7 @@ class JoinServerForm extends React.Component{
             <h1>Assimilation!</h1>
             <i className="far fa-handshake" id="join-server-logo"></i>
             <h1>Join a Server!</h1>
+            <i className="fas fa-hand-point-down" id="point-icon"></i>
             <form onSubmit={this.handleSubmit}>
               <input type="text" onChange={this.handleChange("invite_link")} id="server-field"
               placeholder="Enter secret password"/>

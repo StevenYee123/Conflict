@@ -77,18 +77,19 @@ class ServerIndex extends React.Component{
 
             <Modal className="server-modal" isOpen={this.props.serverFormModalOpen} ariaHideApp={false} 
             style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)', zIndex: 999}}} >
-              <div className="modal-close-container">
-                <button onClick={this.closeModal('serverFormModalOpen')}>X</button>
+              <div className="servers-modal-container">
+                <div className="modal-close-container">
+                  <button onClick={this.closeModal('serverFormModalOpen')}>X</button>
+                </div>
+                <div className="modal-content-header">
+                  <h1>More Conflict is Good!</h1>
+                </div>
+
+                <div className="server-modal-content">
+                  <AddServerForm currentUser={currentUser} createServer={createServer} />
+                  <JoinServerForm joinServer={joinServer} />
+                </div>
               </div>
-              <div className="modal-content-header"> 
-                <h1>More Conflict is Good!</h1>
-              </div>
-             
-              <div className="server-modal-content">
-                <AddServerForm currentUser={currentUser} createServer={createServer}/>
-                <JoinServerForm joinServer={joinServer} />
-              </div>
-              
             </Modal>
 
           </main>
