@@ -1,4 +1,5 @@
 import React from "react";
+import MemberIndexItem from "./members_index_item";
 
 class MembersIndex extends React.Component{
     constructor(props){
@@ -18,16 +19,23 @@ class MembersIndex extends React.Component{
     }
 
     render(){
+        const {currentServer} = this.props;
         let users = Object.values(this.props.users);
         let userList;
+
         if (users.length > 0){
             userList = users.map((user) => {
-                return <MemberIndexItem id={user.id} username={username} />
+            if(currentServer.id && currentServer.users.includes(user.id)){
+                return <MemberIndexItem id={user.id} username={user.username} key={Math.random()}/>
+            }
             });
         }
         return(
-            <div>
-                <h1>Members List</h1>
+            <div className="members-container">
+                <h1>Members</h1>
+                <ul>
+                    {userList}
+                </ul>
             </div>
         )
     }
