@@ -6,7 +6,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ServerIndexContainer from "./server/server_index_container";
 import ContentContainer from "./content/content_container";
-import ChannelShowContainer from "./channel/channel_show_container";
+import ChannelIndexContainer from "./channel/channel_index_container";
 import HomepageContentContainer from "./content/homepage_content_container";
 import MessagesIndexContainer from "./message/message_index_container";
 
@@ -17,7 +17,8 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/channels" component={ServerIndexContainer} />
       <ProtectedRoute exact path="/channels" component={HomepageContentContainer} />
-      <ProtectedRoute path="/channels/:serverId" component={ContentContainer} />
+      {/* <ProtectedRoute path="/channels/:serverId" component={ContentContainer} /> */}
+      <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelIndexContainer} />
       {/* <ProtectedRoute exact path="/channels/:serverId/:channelId" component={ChannelShowContainer} /> */}
       <ProtectedRoute exact path="/channels/:serverId/:channelId" component={MessagesIndexContainer} />
   </>

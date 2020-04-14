@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import MessageIndex from "./message_index";
 import { fetchChannel } from "../../actions/channel_actions";
 import { fetchUsers } from "../../actions/user_actions";
-import { fetchMessages, createMessage } from "../../actions/message_actions";
+import { fetchMessages, createMessage, receiveMessage } from "../../actions/message_actions";
 import { selectChannel, grabMessages, selectServer } from "../../reducers/selectors";
 
 const mapStateToProps = (state, ownProps) => {
@@ -31,6 +31,7 @@ const mapDispatchToProps = dispatch => ({
     fetchChannel: (channelId) => dispatch(fetchChannel(channelId)),
     fetchMessages: (channelId) => dispatch(fetchMessages(channelId)),
     createMessage: (message) => dispatch(createMessage(message)),
+    receiveMessage: (message) => dispatch(receiveMessage(message)),
     fetchUsers: () => dispatch(fetchUsers())
 })
 

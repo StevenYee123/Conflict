@@ -6,6 +6,6 @@ class ChatChannel < ApplicationCable::Channel
   def unsubscribed; end
 
   def create(message_params)
-    Message.create(author_id: message_params['content']['currentUserId'], body: message_params['content']['body'], text_channel_id: message_params['content']['text_channel_id'])
+    Message.create(author_id: message_params['content']['author_id'], body: message_params['content']['body'], channel_id: message_params['content']['channel_id'])
   end
 end

@@ -1,29 +1,44 @@
 import { connect } from "react-redux";
 import ChannelIndex from "./channel_index";
-import { fetchChannel, updateChannel, deleteChannel } from "../../actions/channel_actions";
+import { fetchServer } from "../../actions/server_actions";
+import { fetchChannel, fetchChannels, updateChannel, deleteChannel, createChannel } from "../../actions/channel_actions";
+import { updateServer, deleteServer } from "../../actions/server_actions";
 import { fetchMessages } from "../../actions/message_actions";
+import { logout } from "../../actions/session_actions";
 import { modalReceiver, modalRemover } from "../../actions/modal_actions";
-import { selectServer, selectChannel } from "../../reducers/selectors";
+import { selectServer, selectChannel, grabServers } from "../../reducers/selectors";
 
 const mapStateToProps = (state, ownProps) => {
     const placeHolderServer = { name: "Loading, please wait" };
     const placeHolderChannel = { name: "Loading, please wait" };
-    const ids = ownProps.path.split("/");
-    let currentServer = selectServer(state, parseInt(ids[ids.length - 2])) || placeHolderServer;
-    let currentChannel = selectChannel(state, parseInt(ids[ids.length - 1])) || placeHolderChannel;
+    let currentServer = selectServer(state, ownProps.match.params.serverId) || placeHolderServer;
+    let currentChannel = selectChannel(state, ownProps.match.params.channelId) || placeHolderChannel;
+    const servers = grabServers(state);
   return {
     currentUser: state.entities.users[state.session.id],
     editChannelModal: state.modal.editChannelModal,
     deleteChannelModal: state.modal.deleteChannelModal,
-    currentServer, 
+    contentModal: state.modal.contentModal,
+    inviteModal: state.modal.inviteModal,
+    editServerModal: state.modal.editServerModal,
+    deleteServerModal: state.modal.deleteServerModal,
+    serverId: ownProps.match.params.serverId,
+    channels: state.entities.channels,
+    currentServer,
     currentChannel,
-    channelIds: Object.keys(state.entities.channels)
+    channelIds: Object.keys(state.entities.channels),
+    servers,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchServer: (serverId) => dispatch(fetchServer(serverId)),
+    updateServer: (server) => dispatch(updateServer(server)),
+    deleteServer: (serverId) => dispatch(deleteServer(serverId)),
     fetchChannel: (channelId) => dispatch(fetchChannel(channelId)),
+    fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
+    createChannel: (channel) => dispatch(createChannel(channel)),
     updateChannel: (channel) => dispatch(updateChannel(channel)),
     deleteChannel: (channelId) => dispatch(deleteChannel(channelId)),
     fetchMessages: (channelId) => dispatch(fetchMessages(channelId)),
