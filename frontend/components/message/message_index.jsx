@@ -1,5 +1,6 @@
 import React from "react";
 import MessageIndexItem from "./message_index_item";
+import MembersIndex from "../users/members_index";
 
 class MessageIndex extends React.Component{
     constructor(props){
@@ -16,7 +17,9 @@ class MessageIndex extends React.Component{
 
     keyPressed(e){
         if (e.key === "Enter"){
-            this.props.createMessage(this.state);
+            this.props.createMessage(this.state).then(() => {
+                this.setState({body: ''});
+            });
         }
     }
 
@@ -44,7 +47,7 @@ class MessageIndex extends React.Component{
     }
 
     render(){
-        const { messages, currentChannel } = this.props;
+        const { messages, currentChannel, fetchUsers, currentServer, users } = this.props;
         const channelMessages = Object.values(messages);
         let messageIndexItems;
         if (channelMessages.length > 0){
@@ -65,13 +68,11 @@ class MessageIndex extends React.Component{
                             {messageIndexItems}
                         </div>
                         <div className="enter-message-container">
-                            <input type="text" className="enter-message-field" onKeyPress={this.keyPressed}
+                            <input type="text" className="enter-message-field" onKeyPress={this.keyPressed} value={this.state.body}
                             onChange={this.handleChange('body')} placeholder="Enter a message for your homies to see!" />
                         </div>
                     </div>
-                    <div>
-                        <h1>Members List</h1>
-                    </div>
+                    <MembersIndex fetchUsers={fetchUsers} currentServer={currentServer} users={users}/>
                 </div>
             </div>
         )
