@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_015943) do
+ActiveRecord::Schema.define(version: 2020_04_14_185423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,14 @@ ActiveRecord::Schema.define(version: 2020_04_13_015943) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text "body", null: false
     t.integer "author_id", null: false
-    t.integer "channel_id", null: false
+    t.text "body", null: false
+    t.string "thread_type", null: false
+    t.bigint "thread_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_messages_on_author_id"
-    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["thread_type", "thread_id", "created_at"], name: "index_messages_on_thread_type_and_thread_id_and_created_at"
   end
 
   create_table "server_memberships", force: :cascade do |t|

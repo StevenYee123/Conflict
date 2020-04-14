@@ -9,14 +9,22 @@ class MessageIndex extends React.Component{
         this.state = {
             body: '',
             author_id: null,
-            channel_id: null
+            channel_id: null,
+            editing: null
         }
 
         this.keyPressed = this.keyPressed.bind(this);
+        this.setEditing = this.setEditing.bind(this);
+    }
+
+    componentDidMount(){
+        const { threadId, fetchThread, createThreadSubscription } = this.props;
+        fetchThread(threadId).then(() => 
+            this.subscription = createThreadSubscription(threadId)
+        );
     }
 
     keyPressed(e){
-        const currentState = this.state;
         const channelId = parseInt(this.props.currentChannel.id);
         if (e.key === "Enter"){
             this.chats.create(this.state);
@@ -31,22 +39,56 @@ class MessageIndex extends React.Component{
         }
     }
 
-    componentDidUpdate(){
-        let channelId = parseInt(this.props.match.params.channelId);
-        if (this.state.channel_id !== channelId){
-            this.setState({channel_id : channelId}, () => {
-                this.props.fetchMessages(channelId).then(() => this.createSocket());
-            });
+    componentDidUpdate(prevProps){
+        const { threadId, fetchThread, createThreadSubscription } = this.props;
+
+        if(!threadId){
+            return;
         }
 
-        if ((!this.state.author_id && !this.state.channel_id) 
-        && this.props.currentChannel !== {} && this.state.channel_id !== channelId){
-            this.setState({
-                author_id: this.props.currentUser.id,
-                channel_id: channelId
+        if(!prevProps.threadId || prevProps.threadId !== threadId){
+            if(this.state.editing){
+                this.setEditing(null);
+            }
+
+            fetchThread(threadId).then(() => {
+              if (this.subscription) {
+                this.subscription.unsubscribe();
+              }
+              this.subscription = createThreadSubscription(threadId);
             })
         }
     }
+
+    setEditing(messageId){
+        this.setState({
+            editing: messageId
+        });
+    }
+
+    componentWillUnmount(){
+        if(this.subscription) {
+            this.subscription.unsubscribe();
+            this.subscription = null;
+        }
+    }
+
+    // componentDidUpdate(){
+    //     let channelId = parseInt(this.props.match.params.channelId);
+    //     if (this.state.channel_id !== channelId){
+    //         this.setState({channel_id : channelId}, () => {
+    //             this.props.fetchMessages(channelId).then(() => this.createSocket());
+    //         });
+    //     }
+
+    //     if ((!this.state.author_id && !this.state.channel_id) 
+    //     && this.props.currentChannel !== {} && this.state.channel_id !== channelId){
+    //         this.setState({
+    //             author_id: this.props.currentUser.id,
+    //             channel_id: channelId
+    //         })
+    //     }
+    // }
 
     createSocket() {
         let cable = ActionCable.createConsumer();

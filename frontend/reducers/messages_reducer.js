@@ -1,4 +1,4 @@
-import { RECEIVE_MESSAGES, RECEIVE_MESSAGE } from "../actions/message_actions";
+import { RECEIVE_MESSAGES, RECEIVE_MESSAGE, RECEIVE_NEW_MESSAGE } from "../actions/message_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 const messagesReducer = (state = {}, action) => {
@@ -7,7 +7,11 @@ const messagesReducer = (state = {}, action) => {
         case RECEIVE_MESSAGES:
             return action.messages;
         case RECEIVE_MESSAGE:
-            return Object.assign({}, state, {[action.message.id]: action.message})
+        case RECEIVE_NEW_MESSAGE:
+            if (!(action.message.createdAt instanceof Date)){
+                action.message.createdAt = new Date(action.message.createdAt);
+            }
+            return Object.assign({}, state, {[action.message.id]: action.message});
         case RECEIVE_CURRENT_USER:
             if (action.currentUser === {}){
                 return {}

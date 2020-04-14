@@ -20,11 +20,9 @@ class Channel < ApplicationRecord
     source: :leader
 
     has_many :messages,
-    foreign_key: :channel_id,
-    class_name: :Message,
-    dependent: :destroy
+        as: :thread
 
-    after_create_commit do 
-        ChannelChannelCreationEventBroadcastJob.perform_later(self)
-    end
+    # after_create_commit do 
+    #     ChannelChannelCreationEventBroadcastJob.perform_later(self)
+    # end
 end

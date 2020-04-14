@@ -1,4 +1,4 @@
-json.extract! message, :id, :body, :author_id
+json.extract! message, :id, :body, :author_id, :thread_id, :created_at
 
 if message.author
     json.author message.author.username
