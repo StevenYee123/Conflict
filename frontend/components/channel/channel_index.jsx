@@ -13,7 +13,8 @@ class ChannelIndex extends React.Component{
         super(props);
 
         this.state = {
-            hideOptions: ""
+            hideOptions: "",
+            server_id: null
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -23,12 +24,14 @@ class ChannelIndex extends React.Component{
         this.deleteDetails = this.deleteDetails.bind(this);
     }
 
-    componentDidMount() {
-        const serverId = this.props.match.params.serverId;
-        this.props.fetchServer(serverId);
-        if(serverId){
-            this.props.fetchChannels(serverId);
+    componentDidUpdate() {
+        const serverId = parseInt(this.props.match.params.serverId);
+        if (this.state.server_id !== serverId){
+            this.setState({server_id: serverId}, () => {
+                this.props.fetchChannels(serverId).then(() => this.createSocket());
+            })
         }
+        // this.props.fetchServer(serverId);
     }
 
     closeModal(form){
@@ -101,11 +104,6 @@ class ChannelIndex extends React.Component{
         }
     }
 
-
-    componentWillMount(){
-        this.createSocket();
-    }
-
     createSocket(){
         let cable = ActionCable.createConsumer();
         this.channel = cable.subscriptions.create({
@@ -114,12 +112,41 @@ class ChannelIndex extends React.Component{
             connected: () => {},
             received: (channel) => {
                 if (typeof channel.name === "string"){
-                    if (channel.server_id == this.props){
-
+                    if (channel.server_id == this.props.serverId){
+                        this.props.receiveChannel(channel);
+                        this.props.fetchServer(this.props.match.params.serverId);
+                        if (this.props.activeChannel === '0'){
+                            this.props.history.push(`/servers/${this.props.serverId}/${channel.id}}`);
+                        }
                     }
+                } else if (channel.id){
+                    this.props.removeChannel(channel.id);
+                    this.props.fetchServer(this.props.match.params.serverId);
+                    if(this.props.match.params.channelId == channel.id){
+                        let tId = "0";
+                        for(let i = 0; i < this.props.channelIds.length; i++){
+                            if (this.props.channelIds[i] !== channel.id.toString()){
+                                tId = this.props.channelIds[i];
+                                break;
+                            }
+                        }
+                        this.props.history.push(`/servers/${this.props.serverId}/${tId}`);
+                    }
+                } else {
+                    this.props.receiveChannelErrors(channel.errors)
                 }
+            }, 
+            delete: function(id){
+                this.perform("delete", {
+                    id: id
+                });
+            },
+            update: function(channel){
+                this.perform("update", {
+                    channel: channel
+                });
             }
-        })
+        });
     }
 
 

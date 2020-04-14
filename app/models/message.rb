@@ -13,6 +13,10 @@ class Message < ApplicationRecord
     validates :body, :author_id, :channel_id, presence: true
     validates :body, length: {minimum: 1}
 
+    after_create_commit do 
+        ChatMessageCreationEventBroadcastJob.perform_later(self)
+    end
+
     belongs_to :author,
     foreign_key: :author_id,
     class_name: :User

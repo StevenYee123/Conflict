@@ -23,4 +23,8 @@ class Channel < ApplicationRecord
     foreign_key: :channel_id,
     class_name: :Message,
     dependent: :destroy
+
+    after_create_commit do 
+        ChannelChannelCreationEventBroadcastJob.perform_later(self)
+    end
 end

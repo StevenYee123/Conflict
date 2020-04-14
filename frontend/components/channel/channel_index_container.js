@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import ChannelIndex from "./channel_index";
 import { fetchServer } from "../../actions/server_actions";
-import { fetchChannel, fetchChannels, updateChannel, deleteChannel, createChannel } from "../../actions/channel_actions";
+import { fetchChannel, fetchChannels, updateChannel, deleteChannel, 
+  receiveChannel, createChannel, removeChannel, receiveChannelErrors } from "../../actions/channel_actions";
 import { updateServer, deleteServer } from "../../actions/server_actions";
 import { fetchMessages } from "../../actions/message_actions";
 import { logout } from "../../actions/session_actions";
@@ -15,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     let currentChannel = selectChannel(state, ownProps.match.params.channelId) || placeHolderChannel;
     const servers = grabServers(state);
   return {
+    activeChannel: ownProps.match.params.channelId,
     currentUser: state.entities.users[state.session.id],
     editChannelModal: state.modal.editChannelModal,
     deleteChannelModal: state.modal.deleteChannelModal,
@@ -27,12 +29,13 @@ const mapStateToProps = (state, ownProps) => {
     currentServer,
     currentChannel,
     channelIds: Object.keys(state.entities.channels),
-    servers,
+    servers
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    logout: () => dispatch(logout()),
     fetchServer: (serverId) => dispatch(fetchServer(serverId)),
     updateServer: (server) => dispatch(updateServer(server)),
     deleteServer: (serverId) => dispatch(deleteServer(serverId)),
@@ -40,6 +43,9 @@ const mapDispatchToProps = (dispatch) => {
     fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
     createChannel: (channel) => dispatch(createChannel(channel)),
     updateChannel: (channel) => dispatch(updateChannel(channel)),
+    receiveChannel: (channel) => dispatch(receiveChannel(channel)),
+    receiveChannelErrors: (errors) => dispatch(receiveChannelErrors(errors)),
+    removeChannel: (channelId) => dispatch(removeChannel(channelId)),
     deleteChannel: (channelId) => dispatch(deleteChannel(channelId)),
     fetchMessages: (channelId) => dispatch(fetchMessages(channelId)),
     receiveModal: (modalType) => dispatch(modalReceiver(modalType)),

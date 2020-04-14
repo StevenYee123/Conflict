@@ -20,14 +20,8 @@ class MessageIndex extends React.Component{
         const channelId = parseInt(this.props.currentChannel.id);
         if (e.key === "Enter"){
             this.chats.create(this.state);
-            this.setState({body: ''}, () => {
-                this.props.fetchMessages(this.props.currentChannel.id);
-            });
-            // this.props.createMessage(this.state).then(() => {
-            //     this.setState({body: ''}, () => {
-            //         this.chats.create(currentState);
-            //     });
-            // });
+            this.setState({body: ''})
+            
         }
     }
 
@@ -41,9 +35,8 @@ class MessageIndex extends React.Component{
         let channelId = parseInt(this.props.match.params.channelId);
         if (this.state.channel_id !== channelId){
             this.setState({channel_id : channelId}, () => {
-                this.props.fetchMessages(channelId);
-                // this.createSocket();
-            })
+                this.props.fetchMessages(channelId).then(() => this.createSocket());
+            });
         }
 
         if ((!this.state.author_id && !this.state.channel_id) 
@@ -53,10 +46,6 @@ class MessageIndex extends React.Component{
                 channel_id: channelId
             })
         }
-    }
-
-    componentWillMount(){
-        this.createSocket();
     }
 
     createSocket() {
