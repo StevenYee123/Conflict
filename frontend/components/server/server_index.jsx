@@ -43,7 +43,7 @@ class ServerIndex extends React.Component{
                 <div className="server-index-item" key={Math.random()} >
                   <ServerIndexItem server={server} fetchMessages={fetchMessages}
                   fetchChannels={fetchChannels} channels={channels} />
-                  <div className="server-name-preview">
+                  <div id="server-name-preview">
                     <strong>{server.name}</strong>
                   </div>
                 </div>

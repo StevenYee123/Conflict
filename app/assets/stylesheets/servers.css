@@ -5,6 +5,11 @@
 .server-nav{
     height: 100%;
     width: 70px;
+    overflow: -moz-scrollbars-none;
+}
+
+.server-nav::-webkit-scrollbar {
+      width: 0 !important; 
 }
 
 .server-icons{
@@ -15,13 +20,6 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: #1f2024;
     height: 100%;
-    overflow-y: scroll;
-    overflow: hidden;
-}
-
-.server-icons::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
 }
 
 .server-icons li button{
@@ -93,7 +91,7 @@
     position: relative;
 }
 
-.server-name-preview{
+#server-name-preview{
     border-radius: 5px;
     position: absolute;
     bottom: 20px;
@@ -104,16 +102,13 @@
     background-color: black;
     text-align: center;
     color: white;
-    z-index: 2;
+    z-index: 10;
     display: none;
     -webkit-animation: fadeIn ease .9s;
-    -webkit-user-select: none;       
-    -moz-user-select: none; 
-    -ms-user-select: none; 
     user-select: none;
 }
 
-.server-index-item:hover > .server-name-preview{
+.server-index-item:hover > #server-name-preview{
     display: block;
 }
 
