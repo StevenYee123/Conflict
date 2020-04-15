@@ -40,6 +40,14 @@ class User < ApplicationRecord
     has_many :messages,
     class_name: :Message,
     foreign_key: :author_id
+
+    has_many :homie_memberships,
+    foreign_key: :user_one,
+    class_name: :Homie
+
+    has_many :homies,
+    through: :homie_memberships,
+    source: :second_user
     
     
     def self.find_by_credentials(email, password)

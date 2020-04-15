@@ -15,7 +15,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/channels" component={ServerIndexContainer} />
-      <ProtectedRoute exact path="/channels" component={HomepageContentContainer} />
+      <ProtectedRoute exact path="/channels/@me" component={HomepageContentContainer} />
       <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelIndexContainer} />
       <ProtectedRoute exact path="/channels/:serverId/:channelId" component={MessagesIndexContainer} />
   </>

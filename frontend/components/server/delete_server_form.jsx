@@ -19,7 +19,7 @@ class DeleteServerForm extends React.Component{
 
         if(serverIds.length > 1){
             deleteServer(currentServer.id).then(() => 
-            this.props.history.push(`/channels`));
+            this.props.history.push(`/channels/@me`));
         }
     }
 

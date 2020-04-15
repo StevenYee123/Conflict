@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
     };
     this.props
       .manualLogin(dummy)
-      .then(() => this.props.history.push("/channels"));
+      .then(() => this.props.history.push("/channels/@me"));
   }
 
   componentDidMount(){
