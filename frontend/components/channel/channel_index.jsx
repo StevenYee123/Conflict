@@ -28,10 +28,15 @@ class ChannelIndex extends React.Component{
         const serverId = parseInt(this.props.match.params.serverId);
         if (this.state.server_id !== serverId){
             this.setState({server_id: serverId}, () => {
+                debugger;
                 this.props.fetchChannels(serverId).then(() => this.createSocket());
             })
         }
-        // this.props.fetchServer(serverId);
+    }
+
+    componentWillMount() {
+
+        this.props.fetchChannels(this.props.match.params.serverId);
     }
 
     closeModal(form){

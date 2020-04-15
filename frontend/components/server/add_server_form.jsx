@@ -33,7 +33,7 @@ class AddServerForm extends React.Component{
         <h1>Make a Server!</h1>
         <i className="fas fa-hand-point-down" id="point-icon"></i>
         <form className="add-server-form" onSubmit={this.handleSubmit}>
-          <input type="text" onChange={this.handleChange('name')} id="server-field" 
+          <input type="text" onChange={this.handleChange('name')} className="server-field" 
           placeholder="Name your Conflict!" maxLength="17"/>
           <input type="submit" value="Create Server!" id="add-server-button"/>
         </form>

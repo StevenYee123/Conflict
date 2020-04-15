@@ -30,7 +30,7 @@ class JoinServerForm extends React.Component{
             <h1>Join a Server!</h1>
             <i className="fas fa-hand-point-down" id="point-icon"></i>
             <form onSubmit={this.handleSubmit}>
-              <input type="text" onChange={this.handleChange("invite_link")} id="server-field"
+              <input type="text" onChange={this.handleChange("invite_link")} className="server-field"
               placeholder="Enter secret password"/>
               <input type="submit" value="Join Server!" id="join-server-button"/>
             </form>
