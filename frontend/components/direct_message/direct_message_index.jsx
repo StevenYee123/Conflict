@@ -1,6 +1,6 @@
 import React from "react";
 
-class HomePageContent extends React.Component{
+class DirectMessageIndex extends React.Component{
     constructor(props){
         super(props);
     }
@@ -8,10 +8,10 @@ class HomePageContent extends React.Component{
     render(){
         return(
             <div>
-                <h1>Homepage Content!</h1>
+                <h1>Hello from Direct Messages!</h1>
             </div>
         )
     }
 }
 
-export default HomePageContent;
+export default DirectMessageIndex;

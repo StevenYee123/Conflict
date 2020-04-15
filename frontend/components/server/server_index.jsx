@@ -64,7 +64,7 @@ class ServerIndex extends React.Component{
             <div className="server-nav">
               <ul className="server-icons">
                 <li>
-                  <NavLink className='me' activeClassName='selected-server' to='/channels/@me'>
+                  <NavLink className='me' activeClassName='selected-server' to='/servers/@me'>
                     <i className="fas fa-users" id="user-icon"></i>
                   </NavLink>
                 </li>

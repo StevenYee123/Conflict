@@ -6,7 +6,8 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ServerIndexContainer from "./server/server_index_container";
 import ChannelIndexContainer from "./channel/channel_index_container";
-import HomepageContentContainer from "./content/homepage_content_container";
+import HomiesIndexContainer from "./homies/homies_index_container";
+import DirectMessageIndexContainer from "./direct_message/direct_message_index_container";
 import MessagesIndexContainer from "./message/message_index_container";
 
 const App = () => (
@@ -14,10 +15,11 @@ const App = () => (
       <AuthRoute exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute path="/channels" component={ServerIndexContainer} />
-      <ProtectedRoute exact path="/channels/@me" component={HomepageContentContainer} />
-      <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelIndexContainer} />
-      <ProtectedRoute exact path="/channels/:serverId/:channelId" component={MessagesIndexContainer} />
+      <ProtectedRoute path="/servers" component={ServerIndexContainer} />
+      <ProtectedRoute path="/servers/@me" component={HomiesIndexContainer} />
+      <ProtectedRoute exact path="/servers/@me/:homieId" component={DirectMessageIndexContainer} />
+      <ProtectedRoute exact path="/servers/:serverId/channel/:channelId" component={ChannelIndexContainer} />
+      <ProtectedRoute exact path="/servers/:serverId/channel/:channelId" component={MessagesIndexContainer} />
   </>
 );
 
