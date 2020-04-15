@@ -9,6 +9,15 @@ class Api::MessagesController < ApplicationController
     def create
         @message = Message.new(message_params)
         if @message.save 
+            message = {
+                id: @message,
+                author_id: @message.author_id,
+                body: @message.body,
+                created_at: @message.created_at,
+                updated_at: @message.updated_at
+            }
+
+            ChatChannel.load(message.as_json)
             render :show
         else
             render json: @message.errors.full_messages, status: 422

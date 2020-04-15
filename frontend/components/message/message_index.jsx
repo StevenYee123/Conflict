@@ -1,6 +1,8 @@
 import React from "react";
 import MessageIndexItem from "./message_index_item";
 import MembersIndex from "../users/members_index";
+import MessageForm from "./message_form";
+import App from "../App";
 
 class MessageIndex extends React.Component{
     constructor(props){
@@ -10,18 +12,23 @@ class MessageIndex extends React.Component{
             body: '',
             author_id: null,
             channel_id: null
+            // messages: []
         }
-
+        this.bottom = React.createRef();
         this.keyPressed = this.keyPressed.bind(this);
     }
 
     keyPressed(e){
         const currentState = this.state;
-        const channelId = parseInt(this.props.currentChannel.id);
+        // const channelId = this.props.currentChannel.id;
         if (e.key === "Enter"){
-            this.chats.create(this.state);
-            this.setState({body: ''})
-            
+            this.setState({body: ""}, () => this.props.createMessage(currentState));
+            // this.props.createMessage(this.state).then(() => {
+            //     this.setState({ body: "" })
+            // })
+            // this.setState({ body: "" }, () => {
+            //     this.props
+            // });
         }
     }
 
@@ -30,6 +37,23 @@ class MessageIndex extends React.Component{
             this.setState({[field]: e.target.value})
         }
     }
+
+    // componentDidMount() {
+    //     let cable = ActionCable.createConsumer();
+    //     this.chats = cable.subscriptions.create(
+    //     { channel: "ChatChannel" },
+    //     {
+    //         received: data => {
+    //         this.setState({
+    //             messages: this.state.messages.concat(data.message)
+    //         });
+    //         },
+    //         speak: function(data) {
+    //         return this.perform("speak", data);
+    //         }
+    //     }
+    //     );
+    // }
 
     componentDidUpdate(){
         let channelId = parseInt(this.props.match.params.channelId);
@@ -53,14 +77,18 @@ class MessageIndex extends React.Component{
         this.chats = cable.subscriptions.create({
         channel: 'ChatChannel'
         }, {
-        connected: () => {},
-        received: (message) => {
-            this.props.receiveMessage(message);
+        connected: () => {
+        },
+        received: (messages) => {
+            this.props.receiveMessages(messages);
         },
         create: function(chatContent) {
             this.perform('create', {
             content: chatContent
             });
+        },
+        load: function(){
+            return this.perform("load")
         }
         });
     }

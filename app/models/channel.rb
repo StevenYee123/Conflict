@@ -25,6 +25,6 @@ class Channel < ApplicationRecord
     dependent: :destroy
 
     after_create_commit do 
-        ChannelChannelCreationEventBroadcastJob.perform_later(self)
+        ChannelCreationEventBroadcastJob.perform_later(self)
     end
 end

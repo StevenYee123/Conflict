@@ -27,6 +27,6 @@ export const fetchMessages = (channelId) => dispatch => {
 
 export const createMessage = (message) => dispatch => {
     return MessageAPIUtil.createMessage(message)
-        .then((message) => dispatch(receiveMessage(message)),
-        (errors) => dispatch(receiveMessageErrors(errors.responseJSON)));  
+        .then(() => {}),
+        (errors) => dispatch(receiveMessageErrors(errors.responseJSON));  
 };

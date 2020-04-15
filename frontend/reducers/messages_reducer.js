@@ -5,7 +5,11 @@ const messagesReducer = (state = {}, action) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_MESSAGES:
-            return action.messages;
+            if (action.messages.messages){
+                return Object.assign({}, state, {[action.messages.messages.id]: action.messages.messages});
+            } else {
+                return action.messages
+            }
         case RECEIVE_MESSAGE:
             return Object.assign({}, state, {[action.message.id]: action.message})
         case RECEIVE_CURRENT_USER:
