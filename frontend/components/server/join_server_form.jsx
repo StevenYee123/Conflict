@@ -4,16 +4,19 @@ class JoinServerForm extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            invite_link: ''
+            invite_link: '',
         }
-
+        this.oldLink = null;
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e){
         e.preventDefault();
         const {joinServer} = this.props;
-        joinServer(this.state.invite_link);
+        if(this.oldLink !== this.state.invite_link){
+            this.oldLink = this.state.invite_link;
+            joinServer(this.state.invite_link);
+        }
     }
 
     handleChange(field){

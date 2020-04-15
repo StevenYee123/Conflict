@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {fetchServer, createServer, joinServer, deleteServer, updateServer} from "../../actions/server_actions";
+import {fetchServer, deleteServer, updateServer} from "../../actions/server_actions";
 import {fetchChannels, createChannel} from "../../actions/channel_actions";
 import {modalReceiver, modalRemover} from "../../actions/modal_actions";
 import { selectServer, grabChannels, grabServers } from "../../reducers/selectors";

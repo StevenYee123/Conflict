@@ -11,9 +11,10 @@ class Api::MessagesController < ApplicationController
         if @message.save 
             message = {
                 id: @message,
+                author: @message.author.username,
                 author_id: @message.author_id,
                 body: @message.body,
-                created_at: @message.created_at,
+                created_at: @message.created_at.strftime("%m/%d/%Y at %I:%M%p"),
                 updated_at: @message.updated_at
             }
 
