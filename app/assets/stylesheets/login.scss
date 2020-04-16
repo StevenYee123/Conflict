@@ -44,24 +44,22 @@
 }
 
 .session-page ul{
-    opacity: .8;
-    z-index: 1;
-    font-weight: bold;
-    position: absolute;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    background-color: rgb(248, 50, 50);
+    // font-weight: bold;
+    // position: absolute;
+    // text-align: center;
+    // font-family: Arial, Helvetica, sans-serif;
+    // width: 100%;
+    // background-color: rgb(248, 50, 50);
 }
 
 .session-page ul li {
-    border: 1px solid white;
+    // border: 1px solid white;
 }
 
 .fields-form{
     background-color: #262626;
     width: 50%;
-    height: 480px;
+    height: 75%;
     position: relative;
     border: 3px solid black;
     top: 100px;
@@ -182,11 +180,21 @@
 }
 
 .session-errors {
-    animation: fadeIn ease 3s;
-  -webkit-animation: fadeIn ease 3s;
-  -moz-animation: fadeIn ease 3s;
-  -o-animation: fadeIn ease 3s;
-  -ms-animation: fadeIn ease 3s;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    background-color: rgb(248, 50, 50);
+    padding: 10px;
+    opacity: 0;
+    animation: fade 4s linear;
+}
+
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
 }
 
 @keyframes fadeIn{
@@ -196,4 +204,9 @@
   100% {
     opacity:1;
   }
+}
+
+#login-signup-button{
+    margin: 0;
+    padding: 5px;
 }

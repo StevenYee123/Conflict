@@ -126,7 +126,7 @@ class HomiesIndex extends React.Component{
                     {homieOptions}
                 </div>
                 <div className="channels-container">
-                    <strong>Your Homies List!</strong>
+                    <strong>DM Your Homies!</strong>
                     {homies}
                 </div>
                 <div className="logout-section">

@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
       currentUser: state.entities.users[state.session.id],
       serverIds: Object.keys(state.entities.servers),
-      errors: state.errors.session,
+      errors: state.errors.server,
       servers: Object.values(state.entities.servers),
       serverFormModalOpen: state.modal.serverFormModalOpen,
       channels: Object.values(state.entities.channels)

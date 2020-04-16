@@ -116,7 +116,10 @@ class SessionForm extends React.Component {
           </form>
           <div className="session-footer">
             <div>
-              <p>{footerText} {this.props.navLink}</p>
+              <p>{footerText}</p>
+              <button id="login-signup-button" onClick={() => this.props.history.push(this.props.navLink)}>
+                {this.props.formType}
+              </button>
             </div>
             <button onClick={this.guestLogin} id="guest-login">Guest Login</button>
           </div>

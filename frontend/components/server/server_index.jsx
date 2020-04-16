@@ -36,7 +36,7 @@ class ServerIndex extends React.Component{
     render(){
         const {currentUser, logout, createServer, 
           joinServer, fetchChannels, channels, fetchMessages} = this.props;
-        let serversList, errorsList;
+        let serversList;
         if (this.props.servers){
             serversList = this.props.servers.map((server) => {
               if(!server.private_status){
@@ -53,14 +53,6 @@ class ServerIndex extends React.Component{
             });
         }
 
-        const generateErrors = () => {
-          return this.props.errors.map((error) => {
-            return <li class={Math.random()} key={Math.random()}>{error}</li>;
-          });
-        };
-        
-        errorsList = generateErrors();
-
         return (
           <main className="channels-main">
             <div className="server-nav">
@@ -76,7 +68,6 @@ class ServerIndex extends React.Component{
                 </button>
               </ul>
             </div>
-            {errorsList}
 
             <Modal className="server-modal" isOpen={this.props.serverFormModalOpen} ariaHideApp={false} 
             style={{overlay:{ backgroundColor: 'rgba(0,0,0,.5)', zIndex: 999}}} >

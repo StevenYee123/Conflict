@@ -15,12 +15,12 @@ class ServerIndexItem extends React.Component{
         const initial = server.name.slice(0, 1);
         const path = this.props.location.pathname;
         const getNum = path.split("#")[0].split("/");
-        let activeServerId, firstChannel;
+        let activeServerId;
 
         if(getNum.length === 3){
             activeServerId = parseInt(getNum[getNum.length - 1]);
         } else if (getNum.length > 3){
-            activeServerId = parseInt(getNum[getNum.length - 2]);
+            activeServerId = parseInt(getNum[getNum.length - 3]);
         }
 
         let isActive = "";
