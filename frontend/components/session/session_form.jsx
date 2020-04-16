@@ -65,7 +65,8 @@ class SessionForm extends React.Component {
           <>
             <label htmlFor="username" className="frontpage-label">Username</label>
             <br/>
-            <input type="text" id="username" onChange={this.handleChange("username")} className="session-input"/>
+            <input type="text" id="username" onChange={this.handleChange("username")} 
+            maxLength="12" className="session-input"/>
           </>
         );
       } else {
@@ -114,7 +115,9 @@ class SessionForm extends React.Component {
           </div>
           </form>
           <div className="session-footer">
-            <p>{footerText} {this.props.navLink}</p>
+            <div>
+              <p>{footerText} {this.props.navLink}</p>
+            </div>
             <button onClick={this.guestLogin} id="guest-login">Guest Login</button>
           </div>
           

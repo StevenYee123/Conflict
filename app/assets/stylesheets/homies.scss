@@ -1,0 +1,103 @@
+.welcome-container{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+
+    background-image: image_url('wumpus.jpeg');
+}
+
+.homies-welcome-text{
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    padding: 30px;
+}
+
+.homies-modal{
+    background-color: #2C2F33;
+    width: 540px;
+    height: 420px;
+    position: relative;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: modal-grow .25s;
+    border-radius: 10px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+}
+
+.homie-modal-container{
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homie-dm-text-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80%;
+}
+
+.homie-dm-text-container h1{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.homie-dm-text{
+    width: 100%;
+}
+
+#homie-home-icon{
+    font-size: 150px;
+    color: white;
+}
+
+.homie-add-form{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 55px;
+}
+
+.homie-add-field{
+    font-size: 25px;
+    border-radius: 10px;
+    background: #2C2F33;
+    border: 2px solid black;
+    color: white;
+    text-align: center;
+}
+
+.homie-add-button{
+    width: 50%;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: #2C2F33;
+    color: white;
+    margin-top: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+    -webkit-transition: .3s ease-in-out;
+}
+
+.homie-add-button:hover{
+    background-color: white;
+    color: #2C2F33;
+}
+
+.add-homie-icon{
+    font-size: 24px;
+}

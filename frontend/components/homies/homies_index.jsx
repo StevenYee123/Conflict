@@ -104,7 +104,7 @@ class HomiesIndex extends React.Component{
         let homieOptions =  (               
                     <>
                         <button className="options-dropdown-button" onClick={this.showOptions}>
-                            <i className="fas fa-chevron-circle-down" id="dropdown-icon"></i>
+                            <span id="dropdown-icon" className="add-homie-icon">+</span>
                             <div id="leader-options-preview">
                                 <span>
                                     Homie Options! :o
@@ -133,7 +133,7 @@ class HomiesIndex extends React.Component{
                     {logoutSection}
                 </div>
 
-                <Modal className="channel-options-modal" isOpen={this.props.addHomieModal} ariaHideApp={false}
+                <Modal className="homies-modal" isOpen={this.props.addHomieModal} ariaHideApp={false}
                     style={{ overlay: { backgroundColor: 'rgba(0,0,0,.5)', zIndex: '999' } }}>
                     <button onClick={() => this.props.removeModal('addHomieModal')} className="channel-close-button">
                         X

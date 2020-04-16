@@ -11,7 +11,7 @@ class HomiesWelcome extends React.Component{
             <div className="last-container">
                 <div className="welcome-container">
                     <div className="channel-title-bar"></div>
-                    <h1 className="welcome-text">Welcome to {`  `}
+                    <h1 className="homies-welcome-text">Welcome to {`  `}
                         <img src={window.conflictlogoURL} alt="conflict"/>
                     </h1>
                 </div>
