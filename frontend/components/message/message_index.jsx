@@ -12,7 +12,6 @@ class MessageIndex extends React.Component{
             author_id: null,
             channel_id: null
         }
-        this.bottom = React.createRef();
         this.keyPressed = this.keyPressed.bind(this);
     }
 

@@ -9,7 +9,8 @@ class Api::DirectMessagesController < ApplicationController
         elsif current_user.servers.where(private_status: true).any? {|server| server.users.ids.include?(params[:id].to_i)}
             render 'api/direct_messages/show.json.jbuilder'
         else
-            @server = Server.new(name: "direct_message #{current_user.username} #{params[:id]}", leader_id: current_user.id, private_status: true)
+            @user = User.find(params[:id])
+            @server = Server.new(name: "#{current_user.username}/#{@user.username}", leader_id: current_user.id, private_status: true, invite_link: SecureRandom::urlsafe_base64(16))
             if @server.save 
                 @channel = Channel.create({name: "General", server_id: @server.id})
                 join_server(current_user.id, @server)

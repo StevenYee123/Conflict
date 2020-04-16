@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Homie.delete_all
 ServerMembership.delete_all
 Message.delete_all
 Channel.delete_all
@@ -34,3 +35,5 @@ m1 = Message.create({body: "Some sample text to take up some space fam!", channe
 m2 = Message.create({body: "Just trying to occupy some space ya feel me!?", channel_id: c1.id, author_id: u1.id})
 m3 = Message.create({body: "Keeping the train going while I can think of things to write", channel_id: c1.id, author_id: u1.id})
 m4 = Message.create({body: "ScubaSteve in the house with some extra stuff!", channel_id: c1.id, author_id: u2.id})
+
+h1 = Homie.create!({user_one: u1.id, user_two: u2.id})

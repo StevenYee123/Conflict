@@ -24,17 +24,7 @@ class ChannelIndex extends React.Component{
         this.deleteDetails = this.deleteDetails.bind(this);
     }
 
-    // componentDidUpdate() {
-    //     const serverId = parseInt(this.props.match.params.serverId);
-    //     if (this.state.server_id !== serverId){
-    //         this.setState({server_id: serverId}, () => {
-    //             this.props.fetchChannels(serverId).then(() => this.createSocket());
-    //         })
-    //     }
-    // }
-
     componentWillMount() {
-
         this.props.fetchChannels(this.props.match.params.serverId);
     }
 
@@ -107,51 +97,6 @@ class ChannelIndex extends React.Component{
             this.setState({hideOptions: "show"});
         }
     }
-
-    // createSocket(){
-    //     let cable = ActionCable.createConsumer();
-    //     this.channel = cable.subscriptions.create({
-    //         channel: "ChannelChannel"
-    //     }, {
-    //         connected: () => {},
-    //         received: (channel) => {
-    //             if (typeof channel.name === "string"){
-    //                 if (channel.server_id == this.props.serverId){
-    //                     this.props.receiveChannel(channel);
-    //                     this.props.fetchServer(this.props.match.params.serverId);
-    //                     if (this.props.activeChannel === '0'){
-    //                         this.props.history.push(`/servers/${this.props.serverId}/${channel.id}}`);
-    //                     }
-    //                 }
-    //             } else if (channel.id){
-    //                 this.props.removeChannel(channel.id);
-    //                 this.props.fetchServer(this.props.match.params.serverId);
-    //                 if(this.props.match.params.channelId == channel.id){
-    //                     let tId = "0";
-    //                     for(let i = 0; i < this.props.channelIds.length; i++){
-    //                         if (this.props.channelIds[i] !== channel.id.toString()){
-    //                             tId = this.props.channelIds[i];
-    //                             break;
-    //                         }
-    //                     }
-    //                     this.props.history.push(`/servers/${this.props.serverId}/${tId}`);
-    //                 }
-    //             } else {
-    //                 this.props.receiveChannelErrors(channel.errors)
-    //             }
-    //         }, 
-    //         delete: function(id){
-    //             this.perform("delete", {
-    //                 id: id
-    //             });
-    //         },
-    //         update: function(channel){
-    //             this.perform("update", {
-    //                 channel: channel
-    //             });
-    //         }
-    //     });
-    // }
 
 
     render(){

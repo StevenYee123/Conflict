@@ -8,7 +8,7 @@ class MemberIndexItem extends React.Component{
             <li>
                 <div className="member-item">
                     <span>{initial.toUpperCase()}</span>
-                    <strong>{username}</strong>
+                    <strong>{`${username}#${id}`}</strong>
                 </div>
             </li>
            
