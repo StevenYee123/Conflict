@@ -36,7 +36,12 @@ class Splash extends React.Component{
                 />
                 <img src={window.conflictlogoURL} alt="conflict-logo" id="splash-text"/>
               </div>
-              <div className="right">{initialHeader()}</div>
+              <div className="right">
+                <a href="https://github.com/stevenYee123/" id="github-icon">
+                  <i className="fab fa-github"></i>
+                </a>
+                {initialHeader()}
+              </div>
             </header>
             <div className="splash-mid">
                 <h1>Welcome to the world of Conflict</h1>

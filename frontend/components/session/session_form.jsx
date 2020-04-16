@@ -93,7 +93,10 @@ class SessionForm extends React.Component {
     
     return (
       <div className={`session-page ${selector}`}>
-        <Link to="/"><img src={window.brentURL} className="session-logo" alt="logo.png"/></Link>
+        <div className="session-logo">
+          <Link to="/"><img src={window.brentURL} alt="logo.png" /></Link>
+          <Link to="/"><img src={window.conflictlogoURL} alt="conflict.png" /></Link>
+        </div>
         <div className="fields-form">
           <form className="session-form">
           <div className="welcome-text">

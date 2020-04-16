@@ -96,6 +96,10 @@
     height: 68px;
 }
 
+#github-icon{
+    margin-right: 20px;
+}
+
 .signup-button {
     text-decoration: none;
     background-color: #FFFFFF;

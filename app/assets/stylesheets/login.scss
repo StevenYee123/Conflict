@@ -1,7 +1,12 @@
 .session-logo{
     position: absolute;
     left: 10px;
-    width: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.session-logo img{
+    width: 100px;
 }
 
 .session-page{
