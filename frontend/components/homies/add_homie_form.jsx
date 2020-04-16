@@ -15,11 +15,9 @@ class AddHomieForm extends React.Component{
     }
 
     handleSubmit(e){
-        debugger;
         e.preventDefault();
         const { createDirectMessage } = this.props;
         createDirectMessage(this.state.id).then((res) => {
-            debugger;
             this.props.history.push(`/servers/@me/${res.id}/${res.channelId}`);
         })
     }

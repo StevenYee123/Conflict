@@ -51,7 +51,6 @@ class SessionForm extends React.Component {
 
   render() {
     const numbers = ["one", "two", "three", "four", "five", "six"];
-    // Some logic to render differently based on formType
     const that = this;
     const { formType } = this.props;
     let header, subMessage, footerText, link, usernameField, classname;

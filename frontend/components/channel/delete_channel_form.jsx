@@ -9,8 +9,6 @@ class DeleteChannelForm extends React.Component{
     }
 
     handleClick(){
-        // const channelId = this.props.currentChannel.id;
-        // const channelIds = Object.values
         const {currentChannel, deleteChannel, channelIds, currentServer} = this.props;
         let nextChannel = channelIds[0];
         if (parseInt(nextChannel) === currentChannel.id){
