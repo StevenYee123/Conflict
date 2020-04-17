@@ -108,7 +108,7 @@ class SessionForm extends React.Component {
           <div className="fields-container">
             <label id="email" className="frontpage-label">Email:</label>
             <br/>
-            <input type="text" id="email" onChange={this.handleChange("email")} className="session-input"/>
+            <input type="email" id="email" onChange={this.handleChange("email")} className="session-input"/>
             <br/>
             {usernameField}
             <label htmlFor="password" className="frontpage-label">Password</label>
