@@ -54,6 +54,8 @@ class SessionForm extends React.Component {
     const that = this;
     const { formType } = this.props;
     let header, subMessage, footerText, link, usernameField, classname;
+    let buttonText;
+    formType === "Sign Up" ? buttonText = "Login" : buttonText = "Sign Up";
     const selector = numbers[this.props.classNum];
       if (formType === 'Sign Up'){
         link = "/login";
@@ -121,7 +123,7 @@ class SessionForm extends React.Component {
             <div>
               <p>{footerText}</p>
               <button id="login-signup-button" onClick={() => this.props.history.push(this.props.navLink)}>
-                {this.props.formType}
+                {buttonText}
               </button>
             </div>
             <button onClick={this.guestLogin} id="guest-login">Guest Login</button>

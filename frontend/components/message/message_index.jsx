@@ -1,7 +1,6 @@
 import React from "react";
 import MessageIndexItem from "./message_index_item";
 import MembersIndex from "../users/members_index";
-import App from "../App";
 
 class MessageIndex extends React.Component{
     constructor(props){

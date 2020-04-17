@@ -42,7 +42,7 @@ class Content extends React.Component{
           return (
             <div className="logout-section">
               <span className="user-initial">{userInfo.username.slice(0, 1).toUpperCase()}</span>
-              <strong>{userInfo.username}</strong>
+                <strong>{userInfo.username}{userInfo.id}</strong>
               <button onClick={logout}>Log Out</button>
             </div>
           );
