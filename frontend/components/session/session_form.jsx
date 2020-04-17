@@ -83,7 +83,7 @@ class SessionForm extends React.Component {
       }
 
     const errorList = () => {
-      return that.props.errors.map((error) => {
+      return this.props.errors.map((error) => {
         return <li class={Math.random()} key={Math.random()}>{error}</li>;
       });
     };
