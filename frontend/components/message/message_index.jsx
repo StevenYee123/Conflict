@@ -68,6 +68,7 @@ class MessageIndex extends React.Component{
     render(){
         const { messages, currentChannel, fetchUsers, currentServer, users } = this.props;
         const channelMessages = Object.values(messages);
+        let placeHolder;
         let messageIndexItems;
         if (channelMessages.length > 0){
             messageIndexItems = channelMessages.reverse().map((message) => {
@@ -75,6 +76,12 @@ class MessageIndex extends React.Component{
                     <MessageIndexItem key={Math.random()} message={message}/>
                 )
             })
+        } else {
+            placeHolder = <h1 className="message-placeholder-text">
+                <i className="fas fa-wind"></i>
+                Man it's lonely here, why dontcha say something?
+                <i className="fas fa-laugh-wink"></i>
+            </h1>
         }
         return(
             <div className="last-container">
@@ -84,6 +91,7 @@ class MessageIndex extends React.Component{
                 <div className="last-container-main">
                     <div className="last-container-left">
                         <div className="messages-container">
+                            {placeHolder}
                             {messageIndexItems}
                         </div>
                         <div className="enter-message-container">

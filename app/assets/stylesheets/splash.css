@@ -70,6 +70,7 @@
     text-decoration: none;
     color: white;
     opacity: .5;
+    -webkit-transition: .3s ease-in-out;
 }
 
 .splash-nav .right > a:hover{
@@ -87,7 +88,7 @@
 
 .splash-mid{
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
     padding: 72px 50px 0;
     color: white;
@@ -115,7 +116,7 @@
     display: flex;
     justify-content: space-around;
     margin-top: 12px;
-    width: 100%;
+    width: 60%;
     height: 68px;
 }
 
@@ -126,13 +127,14 @@
 .signup-button {
     text-decoration: none;
     background-color: #FFFFFF;
-    font-size: 22px;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    padding: 10px 40px;
-    height: 25px;
+    padding: 10px 60px;
+    height: 20px;
     border-radius: 5px;
     position: relative;
+    -webkit-transition: .3s ease-in-out;
 }
 
 .signup-button:hover{
@@ -142,12 +144,13 @@
 .homepage-button {
     text-decoration: none;
     background-color: #7289DA;
-    font-size: 22px;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px 40px;
-    height: 25px;
+    height: 20px;
     color: #FFFFFF;
     border-radius: 5px;
+    -webkit-transition: .3s ease-in-out;
 }
 
 .homepage-button:hover{

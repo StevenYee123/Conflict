@@ -74,10 +74,17 @@ class DirectMessageIndex extends React.Component{
     render(){
         const { messages, currentChannel, currentUser, currentServer } = this.props;
         let messageIndexItems;
+        let placeHolder;
         if(Object.values(messages).length){
             messageIndexItems = Object.values(messages).reverse().map((message) => (
                 <DirectMessageIndexItem key={Math.random()} message={message} />
             ))
+        } else {
+            placeHolder = <h1 className="message-placeholder-text">
+                            <i className="fas fa-wind"></i>
+                            Man it's lonely here, why dontcha say something?
+                            <i className="fas fa-laugh-wink"></i>
+                        </h1>
         }
         const splitNames = currentServer.name.split("/");
 
@@ -92,6 +99,7 @@ class DirectMessageIndex extends React.Component{
                 <div className="last-container-main">
                     <div className="last-container-left">
                         <div className="messages-container">
+                            {placeHolder}
                             {messageIndexItems}
                         </div>
                         <div className="enter-message-container">
