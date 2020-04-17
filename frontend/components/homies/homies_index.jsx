@@ -81,11 +81,11 @@ class HomiesIndex extends React.Component{
     }
 
     render(){
-        let homies = null;
-        const {currentUser, servers, logout, createDirectMessage} = this.props;
+        let homiesList;
+        const {currentUser, servers, logout, createDirectMessage, homies} = this.props;
         const logoutSection = this.getLogout(currentUser, logout);
         if(Object.values(servers).length){
-            homies = Object.values(servers).map(server => {
+            homiesList = Object.values(servers).map(server => {
                 let displayName;
                 const names = server.name.split("/");
                 currentUser.username === names[0] ? displayName = names[1] : displayName = names[0];
@@ -100,7 +100,6 @@ class HomiesIndex extends React.Component{
                 }
             });
         }
-
         let homieOptions =  (               
                     <>
                         <button className="options-dropdown-button" onClick={this.showOptions}>
@@ -126,8 +125,8 @@ class HomiesIndex extends React.Component{
                     {homieOptions}
                 </div>
                 <div className="channels-container">
-                    <strong>DM Your Homies!</strong>
-                    {homies}
+                    <strong className="homies-text">DM Your Homies!</strong>
+                    {homiesList}
                 </div>
                 <div className="logout-section">
                     {logoutSection}

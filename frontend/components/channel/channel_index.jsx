@@ -24,9 +24,9 @@ class ChannelIndex extends React.Component{
         this.deleteDetails = this.deleteDetails.bind(this);
     }
 
-    componentWillMount() {
-        this.props.fetchChannels(this.props.match.params.serverId);
-    }
+    // componentWillMount() {
+    //     this.props.fetchChannels(this.props.match.params.serverId);
+    // }
 
     closeModal(form){
       return e => {

@@ -80,7 +80,7 @@
     border-radius: 10px;
 }
 
-#user-icon {
+.user-icon {
     background-color: #3a3d42;
     padding: 13px 15px;
     margin: 10px;
@@ -88,7 +88,7 @@
     -webkit-transition: .3s ease-in-out;
 }
 
-#user-icon:hover{
+.user-icon:hover{
     background-color: #7289DA;
     border-radius: 10px;
 }

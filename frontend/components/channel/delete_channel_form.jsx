@@ -17,7 +17,7 @@ class DeleteChannelForm extends React.Component{
         
         if(channelIds.length > 1){
             deleteChannel(currentChannel.id).then(() => 
-                this.props.history.push(`/channels/${currentServer.id}/${nextChannel}`));
+                this.props.history.push(`/servers/${currentServer.id}/channel/${nextChannel}`));
         }
     }
 

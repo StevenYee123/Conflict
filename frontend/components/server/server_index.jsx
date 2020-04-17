@@ -36,7 +36,8 @@ class ServerIndex extends React.Component{
     render(){
         const {currentUser, logout, createServer, 
           joinServer, fetchChannels, channels, fetchMessages} = this.props;
-        let serversList;
+
+          let serversList;
         if (this.props.servers){
             serversList = this.props.servers.map((server) => {
               if(!server.private_status){
@@ -59,7 +60,7 @@ class ServerIndex extends React.Component{
               <ul className="server-icons">
                 <li>
                   <NavLink className='me' activeClassName='selected-server' to='/servers/@me'>
-                    <i className="fas fa-users" id="user-icon"></i>
+                    <i className="fas fa-users user-icon"></i>
                   </NavLink>
                 </li>
                 {serversList}
