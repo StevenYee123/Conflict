@@ -11,7 +11,7 @@ class ServerIndexItem extends React.Component{
     }
 
     render(){
-        const {server, channels, fetchMessages} = this.props;
+        const {server, channels} = this.props;
         const initial = server.name.slice(0, 1);
         const path = this.props.location.pathname;
         const getNum = path.split("#")[0].split("/");
@@ -33,15 +33,8 @@ class ServerIndexItem extends React.Component{
             <li >
                 <button id={isActive} onClick={() => (
                     this.props.fetchChannels(this.props.server.id)
-                    .then((resp) => {
-                        const channelId = Object.keys(resp.channels)[0];
-                        fetchMessages(channelId).then((resp) => {
-                            this.props.history.push(`/servers/${this.props.server.id}/channel/${Object.values(resp.messages)[0].channelId}`);
-                                }
-                            )
-                        }
-                    )
-                )} >{initial}</button>
+                    .then((resp) => 
+                    this.props.history.push(`/servers/${this.props.server.id}/channel/${Object.keys(resp.channels)[0]}`)))} >{initial}</button>
             </li>
         )
     }

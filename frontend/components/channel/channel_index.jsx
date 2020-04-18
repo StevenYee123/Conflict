@@ -14,7 +14,8 @@ class ChannelIndex extends React.Component{
 
         this.state = {
             hideOptions: "",
-            server_id: null
+            server_id: null,
+            currentChannelId: null
         }
 
         this.closeModal = this.closeModal.bind(this);
@@ -24,9 +25,14 @@ class ChannelIndex extends React.Component{
         this.deleteDetails = this.deleteDetails.bind(this);
     }
 
-    // componentWillMount() {
-    //     this.props.fetchChannels(this.props.match.params.serverId);
-    // }
+    componentDidMount() {
+        const { channelId } = this.props;
+        if (this.state.currentChannelId !== channelId){
+            this.props.fetchMessages(channelId).then((res) => {
+                this.setState({ currentChannelId: Object.values(res.messages)[0].channelId.toString()})
+            });
+        }
+    }
 
     closeModal(form){
       return e => {

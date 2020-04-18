@@ -25,6 +25,7 @@ const mapStateToProps = (state, ownProps) => {
     editServerModal: state.modal.editServerModal,
     deleteServerModal: state.modal.deleteServerModal,
     serverId: ownProps.match.params.serverId,
+    channelId: ownProps.match.params.channelId,
     channels: state.entities.channels,
     currentServer,
     currentChannel,
