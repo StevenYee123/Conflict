@@ -10,7 +10,7 @@ class DirectMessageIndex extends React.Component{
             author_id: null,
             channel_id: null
         }
-
+        this.handleErrors = this.handleErrors.bind(this);
         this.keyPressed = this.keyPressed.bind(this);
     }
 
@@ -36,6 +36,14 @@ class DirectMessageIndex extends React.Component{
                 author_id: this.props.currentUser.id,
                 channel_id: channelId
             });
+        }
+
+        const { clearServerErrors, clearMessageErrors } = this.props;
+        if (this.props.errors.length) {
+            setTimeout(function () {
+                clearServerErrors();
+                clearMessageErrors();
+            }, 3000);
         }
     }
 
@@ -66,6 +74,12 @@ class DirectMessageIndex extends React.Component{
         }
     }
 
+    handleErrors(errors) {
+        return errors.map((error) => {
+            return <li key={Math.random()}>{error}</li>
+        });
+    }
+
     componentDidMount(){
         const {channelId, fetchMessages} = this.props;
         fetchMessages(channelId).then(() => this.setState({currentChannelId: channelId}));
@@ -91,9 +105,19 @@ class DirectMessageIndex extends React.Component{
         let dmName;
         currentUser.username === splitNames[0] ? dmName = splitNames[1] : dmName = splitNames[0];
 
+        const errorsList = this.handleErrors(this.props.errors);
+        let errorsClass = "";
+
+        if (errorsList.length >= 1) {
+            errorsClass = "session-errors";
+        }
+
         return(
             <div className="last-container">
                 <div className="channel-title-bar">
+                    <ul className={errorsClass}>
+                        {errorsList}
+                    </ul>
                     <h1><strong>#</strong>{dmName}</h1>
                 </div>
                 <div className="last-container-main">

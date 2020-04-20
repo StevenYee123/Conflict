@@ -1,10 +1,12 @@
-import { RECEIVE_HOMIE_ERRORS } from "../actions/homie_actions";
+import { RECEIVE_HOMIE_ERRORS, CLEAR_HOMIE_ERRORS } from "../actions/homie_actions";
 
-const homieErrorsReducer = (state = {}, action) => {
+const homieErrorsReducer = (state = [], action) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_HOMIE_ERRORS:
-            return Object.assign({}, state, action.errors);
+            return action.errors;
+        case CLEAR_HOMIE_ERRORS:
+            return [];
         default: 
             return state; 
     }

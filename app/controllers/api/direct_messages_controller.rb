@@ -4,12 +4,14 @@ class Api::DirectMessagesController < ApplicationController
     end
 
     def create 
-        if current_user.id.to_s == params[:id]
+        @user = User.find_by(id: params[:id])
+        if !@user
+            render json: ["Couldn't find that user :("], status: 404
+        elsif current_user.id.to_s == params[:id]
             render json: ["Can't be homies with yourself sorry!"], status: 422
         elsif current_user.servers.where(private_status: true).any? {|server| server.users.ids.include?(params[:id].to_i)}
             render 'api/direct_messages/show.json.jbuilder'
         else
-            @user = User.find(params[:id])
             @server = Server.new(name: "#{current_user.username}/#{@user.username}", leader_id: current_user.id, private_status: true, invite_link: SecureRandom::urlsafe_base64(16))
             if @server.save 
                 @channel = Channel.create({name: "General", server_id: @server.id})

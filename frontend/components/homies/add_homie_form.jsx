@@ -26,7 +26,7 @@ class AddHomieForm extends React.Component{
         return(
             <div className="homie-modal-container">
                 <div className="homie-dm-text-container">
-                    <h1>Trying to slide into some DM's eh?</h1>
+                    <h1>Direct message a Homie!</h1>
                     <i className="fas fa-home" id="homie-home-icon"></i>
                     <h1>Add a homie via homie #id!</h1>
                     <h1>ExampleName#24 <i className="fas fa-arrow-left"></i></h1>
@@ -35,7 +35,7 @@ class AddHomieForm extends React.Component{
                 <form onSubmit={this.handleSubmit} className="homie-add-form">
                     <input type="text" placeholder="#Enter the Homie Id!" className="homie-add-field"
                     onChange={this.handleChange('id')}/>
-                    <input type="submit" value="Slide" className="homie-add-button" />
+                    <input type="submit" value="Add" className="homie-add-button" />
                 </form>
             </div>
         )

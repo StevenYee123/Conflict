@@ -4,6 +4,7 @@ export const RECEIVE_HOMIES = "RECEIVE_HOMIES";
 export const RECEIVE_HOMIE = "RECEIVE_HOMIE";
 export const REMOVE_HOMIE = "REMOVE_HOMIE";
 export const RECEIVE_HOMIE_ERRORS = "RECEIVE_HOMIE_ERRORS";
+export const CLEAR_HOMIE_ERRORS = "CLEAR_HOMIE_ERRORS";
 
 export const receiveHomies = (homies) => {
     return {
@@ -32,6 +33,12 @@ export const receiveHomieErrors = (errors) => {
         errors
     };
 };
+
+export const clearHomieErrors = () => {
+    return {
+        type: CLEAR_HOMIE_ERRORS
+    }
+}
 
 export const fetchHomies = () => dispatch => {
     return HomiesAPIUtil.fetchHomies()

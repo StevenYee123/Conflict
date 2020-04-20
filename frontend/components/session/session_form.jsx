@@ -8,11 +8,21 @@ class SessionForm extends React.Component {
       email: "",
       username: "",
       password: "",
+      errorsClass: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+  }
+
+  componentDidUpdate(prevProps){
+    const { clearErrors } = this.props;
+    if (this.props.errors.length){
+      setTimeout(function() {
+        clearErrors();
+      }, 3000);
+    }
   }
 
   handleChange(type) {
@@ -41,7 +51,6 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount(){
-    this.props.clearErrors();
     this.setState({
       email: "",
       username: "",
@@ -84,14 +93,16 @@ class SessionForm extends React.Component {
 
     const errorList = () => {
       return this.props.errors.map((error) => {
-        return <li class={Math.random()} key={Math.random()}>{error}</li>;
+        return <li key={Math.random()}>{error}</li>;
       });
     };
 
     const errors = errorList();
     let errorsClass = "";
 
-    if (errors.length >= 1) {errorsClass = "session-errors"}; 
+    if (errors.length >= 1) {
+      errorsClass = "session-errors"
+    }
     
     return (
       <div className={`session-page ${selector}`}>

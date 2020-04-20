@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import DirectMessageIndex from "./direct_message_index";
-import { fetchServers } from "../../actions/server_actions";
-import { fetchMessages, createMessage, receiveMessages } from "../../actions/message_actions";
+import { fetchServers, clearServerErrors } from "../../actions/server_actions";
+import { fetchMessages, createMessage,
+     receiveMessages, clearMessageErrors } from "../../actions/message_actions";
 import { fetchDirectMessages } from "../../actions/direct_message_actions";
 import { fetchChannel } from "../../actions/channel_actions";
 import { selectChannel, selectServer } from "../../reducers/selectors";
@@ -18,6 +19,9 @@ const mapStateToProps = (state, ownProps) => {
         name: "Loading..."
     }
 
+    const { server, homie, message } = state.errors;
+    const errors = server.concat(homie.concat(message));
+
     let currentChannel = selectChannel(state, ownProps.match.params.channelId) || placeHolderMessages;
     let currentServer = selectServer(state, ownProps.match.params.serverId) || placeHolderServer;
     return{
@@ -26,7 +30,8 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         channelId: ownProps.match.params.homieId,
         messages: state.entities.messages,
-        users: state.entities.users
+        users: state.entities.users,
+        errors
     };
 };
 
@@ -36,7 +41,9 @@ const mapDispatchToProps = dispatch => ({
     createMessage: (message) => dispatch(createMessage(message)),
     fetchDirectMessages: () => dispatch(fetchDirectMessages()),
     receiveMessages: (messages) => dispatch(receiveMessages(messages)),
-    fetchChannel: (channelId) => dispatch(fetchChannel(channelId))
+    fetchChannel: (channelId) => dispatch(fetchChannel(channelId)),
+    clearServerErrors: () => dispatch(clearServerErrors()),
+    clearMessageErrors: () => dispatch(clearMessageErrors())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DirectMessageIndex));

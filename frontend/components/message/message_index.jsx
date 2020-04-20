@@ -12,6 +12,7 @@ class MessageIndex extends React.Component{
             channel_id: null
         }
         this.keyPressed = this.keyPressed.bind(this);
+        this.handleErrors = this.handleErrors.bind(this);
     }
 
     keyPressed(e){
@@ -42,6 +43,19 @@ class MessageIndex extends React.Component{
                 channel_id: channelId
             })
         }
+
+        const { clearServerErrors } = this.props;
+        if (this.props.errors.length) {
+            setTimeout(function () {
+                clearServerErrors();
+            }, 3000);
+        }
+    }
+
+    handleErrors(errors){
+        return errors.map((error) => {
+            return <li key={Math.random()}>{error}</li>
+        });
     }
 
     createSocket() {
@@ -83,9 +97,20 @@ class MessageIndex extends React.Component{
                 <i className="fas fa-laugh-wink"></i>
             </h1>
         }
+
+        const errorsList = this.handleErrors(this.props.errors);
+        let errorsClass = "";
+
+        if(errorsList.length >= 1){
+            errorsClass = "session-errors";
+        }
+
         return(
             <div className="last-container">
                 <div className="channel-title-bar">
+                    <ul className={errorsClass}>
+                        {errorsList}
+                    </ul>
                     <h1><strong>#</strong>{currentChannel.name}</h1>
                 </div>
                 <div className="last-container-main">

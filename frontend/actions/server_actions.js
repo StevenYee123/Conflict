@@ -26,9 +26,8 @@ export const receiveServerErrors = errors => ({
     errors 
 });
 
-export const clearServerErrors = errors => ({
+export const clearServerErrors = () => ({
     type: CLEAR_SERVER_ERRORS,
-    errors
 });
 
 export const fetchServers = () => dispatch => {
