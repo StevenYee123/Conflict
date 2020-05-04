@@ -63,7 +63,7 @@
 }
 
 .splash-nav .right > a {
-    font-family: Helvetica;
+    font-family: Arial, Helvetica, sans-serif;
     padding: 5px 15px 10px 15px;
     border: 2px solid white;
     border-radius: 20px;
@@ -103,7 +103,7 @@
     text-align: center;
     font-size: 16px;
     color: gray;
-    font-family: Helvetica;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .splash-mid h1 {
@@ -120,8 +120,13 @@
     height: 68px;
 }
 
-#github-icon{
+#splash-icon{
     margin-right: 20px;
+    font-size: 22px;
+}
+
+.fa-linkedin{
+    padding: 0 4px;
 }
 
 .signup-button {
