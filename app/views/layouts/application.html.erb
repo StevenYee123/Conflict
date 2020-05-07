@@ -7,7 +7,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Chat web app inspired by Discord!" />
     <meta property="og:image" content="<%= image_url("preview.png") %>" />
-    <%= favicon_link_tag asset_path('Discord-Logo-White.png') %>
+    <%= favicon_link_tag asset_path("Discord-Logo-White.png") %>
     <script
       src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
       data-auto-a11y="true"
@@ -15,6 +15,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script>
+      window.test = "<%= image_url("Discord-Logo-White.png") %>"
+    </script>
   </head>
 
   <body>
