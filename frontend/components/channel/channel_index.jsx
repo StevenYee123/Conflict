@@ -26,11 +26,14 @@ class ChannelIndex extends React.Component{
     }
 
     componentDidMount() {
-        const { channelId } = this.props;
+        const { channelId, serverId, channels } = this.props;
         if (this.state.currentChannelId !== channelId){
             this.props.fetchMessages(channelId).then((res) => {
                 this.setState({ currentChannelId: Object.values(res.messages)[0].channelId.toString()})
             });
+            if (!Object.values(channels).length){
+                this.props.fetchChannels(serverId);
+            }
         }
     }
 
