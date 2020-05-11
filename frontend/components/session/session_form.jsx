@@ -106,6 +106,7 @@ class SessionForm extends React.Component {
     
     return (
       <div className={`session-page ${selector}`}>
+        <ul className={errorsClass}>{errors}</ul>
         <div className="session-logo">
           <Link to="/"><img src={window.brentURL} alt="logo.png" /></Link>
           <Link to="/"><img src={window.conflictlogoURL} alt="conflict.png" /></Link>
@@ -142,7 +143,6 @@ class SessionForm extends React.Component {
           
         </div>
         <br/>
-        <ul className={errorsClass}>{errors}</ul>
       </div>
     );
   }

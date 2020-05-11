@@ -41,10 +41,10 @@ class Splash extends React.Component{
                   <i className="fab fa-github"></i>
                 </a>
                 <a href="http://www.linkedin.com/in/steven-yee-284731139" id="splash-icon">
-                  <i class="fab fa-linkedin"></i>
+                  <i className="fab fa-linkedin"></i>
                 </a>
                 <a href="https://angel.co/u/steven-yee-8" id="splash-icon">
-                  <i class="fab fa-angellist"></i>
+                  <i className="fab fa-angellist"></i>
                 </a>
                 {initialHeader()}
               </div>

@@ -93,7 +93,7 @@ class HomiesIndex extends React.Component{
                     return (
                         <div id="activate-channel" key={server.id}>
                             <NavLink className='direct-message-item' to={`/servers/@me/${server.id}/${server.channels[0]}`}>
-                                <p><strong id="pound-sign">#</strong>{displayName}</p>
+                                <p><span id="pound-sign">#</span>{displayName}</p>
                             </NavLink>
                         </div>
                     )
@@ -125,7 +125,7 @@ class HomiesIndex extends React.Component{
                     {homieOptions}
                 </div>
                 <div className="channels-container">
-                    <strong className="homies-text">DM Your Homies!</strong>
+                    <strong>DM Your Homies!</strong>
                     {homiesList}
                 </div>
                 <div className="logout-section">

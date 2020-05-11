@@ -61,6 +61,8 @@
 
 .modal-content-header h1{
     font-size: 30px;
+    font-weight: bold;
+    color: gray;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -70,6 +72,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background: repeating-linear-gradient(45deg, #fff8f9, transparent 100px);
     text-align: center;
     border-radius: 10px;
 

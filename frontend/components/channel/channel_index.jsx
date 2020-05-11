@@ -127,7 +127,7 @@ class ChannelIndex extends React.Component{
         return (
             <div id="activate-channel" className={isActive} key={Math.random()}>
                 <Link to={`/servers/${currentServer.id}/channel/${channel.id}`}>
-                    <strong id="pound-sign">#</strong>  
+                    <span id="pound-sign">#</span>  
                     {channel.name}
                 </Link>
                 {leaderChannelOptions}
