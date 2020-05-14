@@ -42,14 +42,16 @@
 .message-item-container{
     box-sizing: border-box;
     width: 100%;
-    padding: 10px 5px 10px 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .message-header{
     display: flex;
     align-items: center;
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     opacity: .2;
     padding: 2px 0 2px 0;
 }

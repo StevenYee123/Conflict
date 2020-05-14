@@ -7,7 +7,7 @@ class MemberIndexItem extends React.Component{
         return(
             <li>
                 <div className="member-item">
-                    <span>{initial.toUpperCase()}</span>
+                    <span className="user-logo">{initial.toUpperCase()}</span>
                     <strong>{`${username}#${id}`}</strong>
                 </div>
             </li>

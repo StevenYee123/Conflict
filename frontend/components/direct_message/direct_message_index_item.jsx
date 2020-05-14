@@ -9,6 +9,9 @@ class DirectMessageIndexItem extends React.Component{
         const { message } = this.props;
         return(
             <div className="message-item-container">
+                <div className="user-logo">
+                    {message.author[0].toUpperCase()}
+                </div>
                 <div className="message-inner-container">
                     <div className="message-header">
                         <strong>{message.author}</strong>
